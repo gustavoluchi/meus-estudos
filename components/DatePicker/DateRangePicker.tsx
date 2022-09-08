@@ -9,7 +9,29 @@ import {FieldButton} from './Button';
 import {DateField} from './DateField';
 import {Popover} from './Popover';
 import {RangeCalendar} from './RangeCalendar';
+/*
+implementação de exemplo
+  let [range, setRange] = useState({
+    start: parseDate('2020-07-03'),
+    end: parseDate('2020-07-10')
+  });
+  let formatter = useDateFormatter({dateStyle: 'long'});
+  <>
+  <DateRangePicker
+    label="Date range"
+    value={range}
+    onChange={setRange}
+  />
+  <p>
+    Selected date:{' '}
+    {formatter.formatRange(
+      range.start.toDate(getLocalTimeZone()),
+      range.end.toDate(getLocalTimeZone())
+    )}
+  </p>
+</>
 
+*/
 export function DateRangePicker(props: any) {
   let state = useDateRangePickerState(props);
   let ref = useRef<HTMLDivElement>(null);
