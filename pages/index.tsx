@@ -1,20 +1,29 @@
-import Head from 'next/head'
-import Container from '../components/container'
-import HeroPost from '../components/hero-post'
-import Intro from '../components/intro'
-import Layout from '../components/layout'
-import MoreStories from '../components/more-stories'
-import Post from '../interfaces/post'
-import { getAllPosts } from '../lib/api'
-import { CMS_NAME } from '../lib/constants'
-
+import {DateRangePicker} from '@/components/DatePicker/DateRangePicker';
+import {getLocalTimeZone, parseDate} from '@internationalized/date';
+import Head from 'next/head';
+import {useState} from 'react';
+import {useDateFormatter} from 'react-aria';
+import Container from '../components/container';
+import HeroPost from '../components/hero-post';
+import Intro from '../components/intro';
+import Layout from '../components/layout';
+import MoreStories from '../components/more-stories';
+import Post from '../interfaces/post';
+import {getAllPosts} from '../lib/api';
+import {CMS_NAME} from '../lib/constants';
 type Props = {
-  allPosts: Post[]
-}
+  allPosts: Post[];
+};
 
-export default function Index({ allPosts }: Props) {
-  const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)
+export default function Index({allPosts}: Props) {
+  const heroPost = allPosts[0];
+  const morePosts = allPosts.slice(1);
+  let [range, setRange] = useState({
+    start: parseDate('2020-07-03'),
+    end: parseDate('2020-07-10')
+  });
+  let formatter = useDateFormatter({dateStyle: 'long'});
+
   return (
     <>
       <Layout>
@@ -23,6 +32,20 @@ export default function Index({ allPosts }: Props) {
         </Head>
         <Container>
           <Intro />
+          <>
+            <DateRangePicker
+              label="Date range"
+              value={range}
+              onChange={setRange}
+            />
+            <p>
+              Selected date:{' '}
+              {formatter.formatRange(
+                range.start.toDate(getLocalTimeZone()),
+                range.end.toDate(getLocalTimeZone())
+              )}
+            </p>
+          </>
           {heroPost && (
             <HeroPost
               title={heroPost.title}
@@ -37,7 +60,7 @@ export default function Index({ allPosts }: Props) {
         </Container>
       </Layout>
     </>
-  )
+  );
 }
 
 export const getStaticProps = async () => {
@@ -47,10 +70,10 @@ export const getStaticProps = async () => {
     'slug',
     'author',
     'coverImage',
-    'excerpt',
-  ])
+    'excerpt'
+  ]);
 
   return {
-    props: { allPosts },
-  }
-}
+    props: {allPosts}
+  };
+};

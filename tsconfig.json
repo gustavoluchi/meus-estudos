@@ -23,9 +23,10 @@
       "@/lib/*": ["lib/*"],
       "@/styles/*": ["styles/*"],
       "@/types": ["types/index"],
-      "@/types/*": ["types/*"]
+      "@/types/*": ["types/*"],
+      "@/api/*": ["pages/api/*"]
     }
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "@types/heroicons.d.xx"]
 }

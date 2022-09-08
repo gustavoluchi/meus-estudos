@@ -54,10 +54,12 @@ model User {
   username      String?
   gh_username   String?
   email         String?   @unique
-  emailVerified DateTime?
+  password      String?
   image         String?
+  role          String?   @default("user")
+  emailVerified DateTime?
   createdAt     DateTime  @default(now())
-  updatedAt     DateTime
+  updatedAt     DateTime  @updatedAt
   Session       Session[]
   Account       Account[]
 }
