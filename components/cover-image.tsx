@@ -1,4 +1,5 @@
 import cn from 'classnames';
+import Image from 'next/image';
 import Link from 'next/link';
 
 type Props = {
@@ -9,15 +10,15 @@ type Props = {
 
 const CoverImage = ({title, src, slug}: Props) => {
   const image = (
-    <picture>
-      <img
-        src={src}
-        alt={`Cover Image for ${title}`}
-        className={cn('shadow-sm', {
-          'hover:shadow-lg transition-shadow duration-200': slug
-        })}
-      />
-    </picture>
+    <Image
+      src={src}
+      alt={`Cover Image for ${title}`}
+      className={cn('shadow-sm', {
+        'hover:shadow-lg transition-shadow duration-200': slug
+      })}
+      width={100}
+      height={100}
+    />
   );
   return (
     <div className="sm:mx-0">
