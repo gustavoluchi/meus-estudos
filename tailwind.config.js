@@ -31,8 +31,5 @@ module.exports = {
     //   }
     // }
   },
-  plugins: [require('daisyui')],
-  daisyui: {
-    darkTheme: 'bumblebee'
-  }
+  plugins: [require('daisyui')]
 };
