@@ -8,7 +8,7 @@ type Props = {
   coverImage: string;
   date: string;
   excerpt: string;
-  author: Author;
+  author?: Author;
   slug: string;
 };
 

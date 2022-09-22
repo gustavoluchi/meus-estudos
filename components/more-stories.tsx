@@ -1,8 +1,8 @@
-import type Post from '../interfaces/post';
+import type {PostType} from '../interfaces/post';
 import PostPreview from './post-preview';
 
 type Props = {
-  posts: Post[];
+  posts: PostType[];
 };
 
 const MoreStories = ({posts}: Props) => {
@@ -15,12 +15,12 @@ const MoreStories = ({posts}: Props) => {
         {posts.map(post => (
           <PostPreview
             key={post.slug}
-            title={post.title}
-            coverImage={post.coverImage}
-            date={post.date}
-            author={post.author}
+            title={post.title ?? ''}
+            coverImage={post.image ?? ''}
+            date={post.createdAt}
+            // author={post.User}
             slug={post.slug}
-            excerpt={post.excerpt}
+            excerpt={post.description ?? ''}
           />
         ))}
       </div>

@@ -8,7 +8,7 @@ import Layout from '../../components/layout';
 import PostBody from '../../components/post-body';
 import PostHeader from '../../components/post-header';
 import PostTitle from '../../components/post-title';
-import type PostType from '../../interfaces/post';
+import type {PostType} from '../../interfaces/post';
 import {getAllPosts, getPostBySlug} from '../../lib/api';
 import {CMS_NAME} from '../../lib/constants';
 
@@ -39,12 +39,12 @@ export default function Post({post, morePosts, preview}: Props) {
                 {/* <meta property="og:image" content={post.ogImage.url} /> */}
               </Head>
               <PostHeader
-                title={post.title}
-                coverImage={post.coverImage}
+                title={post.title ?? ''}
+                // coverImage={post.coverImage}
                 // date={post.date}
                 // author={post.author}
               />
-              <PostBody content={post.content} />
+              <PostBody content={post.content ?? ''} />
             </article>
           </>
         )}

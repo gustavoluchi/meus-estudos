@@ -6,7 +6,7 @@ import '../styles/index.css';
 export default function MyApp({
   Component,
   pageProps: {session, ...pageProps}
-}: AppProps) {
+}: AppProps<any>) {
   return (
     <I18nProvider locale="pt-BR">
       <SSRProvider>
