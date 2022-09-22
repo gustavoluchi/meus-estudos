@@ -1,12 +1,15 @@
+import type {Session} from 'next-auth';
 import {SessionProvider} from 'next-auth/react';
-import {AppProps} from 'next/app';
+import type {AppProps} from 'next/app';
 import {I18nProvider, OverlayContainer, SSRProvider} from 'react-aria';
 import '../styles/index.css';
 
 export default function MyApp({
   Component,
   pageProps: {session, ...pageProps}
-}: AppProps<any>) {
+}: AppProps<{
+  session: Session;
+}>) {
   return (
     <I18nProvider locale="pt-BR">
       <SSRProvider>
