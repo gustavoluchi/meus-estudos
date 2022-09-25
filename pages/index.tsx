@@ -7,7 +7,7 @@ import HeroPost from '../components/hero-post';
 import Layout from '../components/layout';
 import MoreStories from '../components/more-stories';
 import {PostType} from '../interfaces/post';
-import {getAllPosts} from '../lib/api';
+import {getManyPosts} from '../lib/api';
 import {CMS_NAME} from '../lib/constants';
 
 type Props = {
@@ -30,54 +30,20 @@ export default function Index({allPosts}: Props) {
         <Container>
           <NavBar />
           {/* <Intro /> */}
+          <div className="tooltip tooltip-bottom" data-tip="login com Github">
+            <p>teste</p>
+          </div>
+
           {heroPost && <HeroPost infos={heroPost} />}
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
-        <select data-choose-theme title="selecione seu tema">
-          {[
-            'light',
-            'dark',
-            'cupcake',
-            'bumblebee',
-            'emerald',
-            'corporate',
-            'synthwave',
-            'retro',
-            'cyberpunk',
-            'valentine',
-            'halloween',
-            'garden',
-            'forest',
-            'aqua',
-            'lofi',
-            'pastel',
-            'fantasy',
-            'wireframe',
-            'black',
-            'luxury',
-            'dracula',
-            'cmyk',
-            'autumn',
-            'business',
-            'acid',
-            'lemonade',
-            'night',
-            'coffee',
-            'winter'
-          ].map(theme => (
-            <option value={theme} key={theme}>
-              {theme}
-            </option>
-          ))}
-        </select>
       </Layout>
     </>
   );
 }
 
 export const getStaticProps = async () => {
-  const allPosts = await getAllPosts();
-
+  const allPosts = await getManyPosts();
   return {
     props: {
       allPosts: allPosts.map(post => ({

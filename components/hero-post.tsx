@@ -15,19 +15,15 @@ type Props = {
 };
 
 const HeroPost = ({infos}: {infos: PostType}) => {
-  const {title, User, createdAt, description: excerpt, slug} = infos;
-
-  console.log(infos);
+  const {title, createdAt, image, description: excerpt, slug, User} = infos;
   return (
     <section>
-      <div className="mb-8 md:mb-16">
-        <CoverImage
-          title={title ?? 'erro titulo'}
-          src={User?.image ?? '/assets/blog/authors/joe.jpeg'}
-          slug={slug}
-        />
-      </div>
-      <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
+      {image && (
+        <div className="mb-8 md:mb-16">
+          <CoverImage title={title ?? 'erro titulo'} src={image} slug={slug} />
+        </div>
+      )}
+      <div className="md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
         <div>
           <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
             <Link as={`/posts/${slug}`} href="/posts/[slug]">
@@ -40,10 +36,7 @@ const HeroPost = ({infos}: {infos: PostType}) => {
         </div>
         <div>
           <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-          <Avatar
-            name={User?.name ?? 'erro'}
-            picture={'/assets/blog/authors/jj.jpeg'}
-          />
+          <Avatar name={User?.name ?? 'erro'} picture={User?.image} />
         </div>
       </div>
     </section>

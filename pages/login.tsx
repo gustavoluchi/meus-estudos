@@ -2,7 +2,6 @@ import LoadingDots from '@/components/app/loading-dots';
 import {signIn, useSession} from 'next-auth/react';
 import Head from 'next/head';
 import Image from 'next/image';
-import {useRouter} from 'next/router';
 import {useState} from 'react';
 // import toast, { Toaster } from "react-hot-toast";
 
@@ -15,8 +14,8 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const ae = useSession({required: false});
   // Get error message added by next/auth in URL.
-  const {query} = useRouter();
-  const {error} = query;
+  // const {query} = useRouter();
+  // const {error} = query;
   // useEffect(() => {
   //   const errorMessage = Array.isArray(error) ? error.pop() : error;
   //   // errorMessage && toast.error(errorMessage);

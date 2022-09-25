@@ -1,12 +1,13 @@
-import Image from 'next/image';
+import NavbarAvatar from 'modules/auth/view/NavbarAvatar';
+import {themeList} from 'modules/theme/themeList';
 
 export const NavBar = () => {
   return (
-    <div className="navbar bg-base-100 flex justify-between">
+    <div className="navbar bg-base-100 flex shrink-0 grow justify-between">
       {/* <div className="flex-1">
         <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
       </div> */}
-      <section className="flex-col flex items-end md:justify-between mt-16 mb-16 md:mb-12">
+      <section className="flex-col flex w-[200%] items-start md:justify-between mt-16 mb-16 md:mb-12">
         <h1 className="text-3xl md:text-6xl font-bold tracking-tighter leading-tight">
           Meus Estudos
         </h1>
@@ -14,8 +15,28 @@ export const NavBar = () => {
           Aprenda e estude com apoio profissional.
         </h4>
       </section>
-      <div className="flex-none">
-        {/* <div className="dropdown dropdown-end">
+      <section className="w-full flex justify-end">
+        <div className="w-44 flex text-center flex-col mr-2">
+          <label htmlFor="theme-select">Selecione seu tema:</label>
+          <select
+            data-choose-theme
+            title="selecione seu tema"
+            id="theme-select"
+          >
+            {themeList.map(theme => (
+              <option value={theme} key={theme}>
+                {theme}
+              </option>
+            ))}
+          </select>
+        </div>
+        <NavbarAvatar />
+      </section>
+    </div>
+  );
+};
+{
+  /* <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle">
             <div className="indicator">
               <svg
@@ -47,38 +68,5 @@ export const NavBar = () => {
               </div>
             </div>
           </div>
-        </div> */}
-        <div className="dropdown dropdown-end">
-          <div className="avatar"></div>
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 mask mask-squircle">
-              <Image
-                src="/assets/blog/authors/joe.jpeg"
-                width="40"
-                height="40"
-                alt="foto do joe"
-              />
-            </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  );
-};
+        </div> */
+}
