@@ -1,19 +1,12 @@
 import LoadingDots from '@/components/app/loading-dots';
 import {signIn} from 'next-auth/react';
 import {useState} from 'react';
-// import toast, { Toaster } from "react-hot-toast";
+
 export default function GithubLoginButton() {
   const [loading, setLoading] = useState(false);
-  // Get error message added by next/auth in URL.
-  // const {query} = useRouter();
-  // const {error} = query;
-  // useEffect(() => {
-  //   const errorMessage = Array.isArray(error) ? error.pop() : error;
-  //   // errorMessage && toast.error(errorMessage);
-  // }, [error]);
   const handleLogin = async () => {
     setLoading(true);
-    const a = await signIn('github', {callbackUrl: '/'});
+    signIn('github');
   };
   return (
     <div>
@@ -24,6 +17,7 @@ export default function GithubLoginButton() {
         <button
           disabled={loading}
           onClick={handleLogin}
+          type="button"
           className={`${
             loading ? 'cursor-not-allowed bg-gray-600' : 'bg-black'
           } group flex justify-center items-center  w-10 h-10   rounded-full focus:outline-none`}
