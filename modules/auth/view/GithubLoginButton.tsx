@@ -9,7 +9,7 @@ export default function GithubLoginButton() {
     signIn('github');
   };
   return (
-    <div>
+    <div className="min-h-full flex items-end">
       <div
         className="tooltip tooltip-bottom tooltip-primary"
         data-tip="Login com Github"

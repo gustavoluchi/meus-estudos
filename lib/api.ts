@@ -1,4 +1,4 @@
-import prisma from './prisma';
+import {prisma} from '@/shared/infra/prisma';
 
 function selectHelper(fields: string[] = []) {
   let select: any = undefined;

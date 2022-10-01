@@ -1,5 +1,4 @@
-import NavbarAvatar from 'modules/auth/view/NavbarAvatar';
-import {themeList} from 'modules/theme/themeList';
+import {SecondHalfNavbar} from 'modules/structure/SecondHalfNavbar';
 
 export const NavBar = () => {
   return (
@@ -11,27 +10,11 @@ export const NavBar = () => {
         <h1 className="text-3xl md:text-6xl font-bold tracking-tighter leading-tight">
           Meus Estudos
         </h1>
-        <h4 className="text-lg text-left mt-5">
-          Aprenda e estude com apoio profissional.
+        <h4 className="text-lg text-left mt-5 ml-4">
+          Aprenda e estude com profissionais.
         </h4>
       </section>
-      <section className="w-full flex justify-end">
-        <div className="w-44 flex text-center flex-col mr-2">
-          <label htmlFor="theme-select">Selecione seu tema:</label>
-          <select
-            data-choose-theme
-            title="selecione seu tema"
-            id="theme-select"
-          >
-            {themeList.map(theme => (
-              <option value={theme} key={theme}>
-                {theme}
-              </option>
-            ))}
-          </select>
-        </div>
-        <NavbarAvatar />
-      </section>
+      <SecondHalfNavbar />
     </div>
   );
 };

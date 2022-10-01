@@ -24,7 +24,8 @@
       "@/styles/*": ["styles/*"],
       "@/types": ["types/index"],
       "@/types/*": ["types/*"],
-      "@/api/*": ["pages/api/*"]
+      "@/api/*": ["pages/api/*"],
+      "@/shared/*": ["shared/*"]
     }
   },
   "exclude": ["node_modules"],

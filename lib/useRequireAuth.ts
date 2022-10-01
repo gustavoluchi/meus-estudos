@@ -3,19 +3,16 @@ import {useRouter} from 'next/router';
 import {useEffect} from 'react';
 
 function useRequireAuth() {
-  const {data: session} = useSession();
-
+  const {data: session, status} = useSession();
   const router = useRouter();
 
-  // If auth.user is false that means we're not
-  // logged in and should redirect.
   useEffect(() => {
-    if (!session && typeof session != 'undefined') {
-      router.push(`/login`);
+    if (status === 'unauthenticated') {
+      router.push(`/`);
     }
-  }, [session, router]);
+  }, [router, status]);
 
-  return session;
+  return {session, status};
 }
 
 export default useRequireAuth;

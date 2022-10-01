@@ -5,7 +5,7 @@ const Intro = () => {
         Meus Estudos
       </h1>
       <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        seu espaço de estudos e apoio profissional.
+        Aprenda e estude com profissionais.
       </h4>
     </section>
   );
