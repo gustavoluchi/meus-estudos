@@ -1,4 +1,5 @@
 import markdownToHtml from '@/lib/markdownToHtml';
+import {GetStaticPaths} from 'next';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
 import {useRouter} from 'next/router';
@@ -77,17 +78,17 @@ export async function getStaticProps({params: {slug}}: Params) {
   };
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getAllPosts();
-
   return {
-    paths: posts.map((post: any) => {
+    paths: posts.map(post => {
       return {
         params: {
-          slug: post.slug
+          slug: post.slug,
+          User: post.User?.gh_username ?? undefined
         }
       };
     }),
     fallback: false
   };
-}
+};
