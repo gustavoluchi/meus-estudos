@@ -34,6 +34,7 @@
     "react-toastify": "^9.0.8",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
+    "sharp": "^0.31.1",
     "theme-change": "^2.2.0",
     "typescript": "^4.7.4",
     "yup": "1.0.0-beta.7"
