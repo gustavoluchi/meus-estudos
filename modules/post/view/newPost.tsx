@@ -14,52 +14,60 @@ const labels = {
 };
 const fieldNames = keyNameMirror(labels);
 
-export default function NewPost({props: {control, handleSubmit}}: any) {
+function NewPost({props: {control, handleSubmit}}: any) {
   return (
-    <form
-      noValidate
-      onSubmit={handleSubmit}
-      className="min-h-screen flex justify-center content-center flex-col items-center"
-    >
-      <InputRHF
-        control={control}
-        name={fieldNames.title}
-        label={labels.title}
-      />
-      <InputRHF
-        control={control}
-        name={fieldNames.subtitle}
-        label={labels.subtitle}
-      />
-      <InputRHF
-        control={control}
-        name={fieldNames.description}
-        label={labels.description}
-      />
-      <InputRHF
-        control={control}
-        name={fieldNames.image}
-        label={labels.image}
-      />
-
-      {/* <input type="checkbox" checked="checked" className="checkbox" /> */}
-      <InputRHF control={control} name={fieldNames.site} label={labels.site} />
-      <TextAreaRHF
-        control={control}
-        name={fieldNames.content}
-        label={labels.content}
-      />
-      <div className="flex mt-4">
-        <CheckboxRHF
+    <div className="mb-4 prose max-w-none">
+      <h2>Novo texto</h2>
+      <form noValidate onSubmit={handleSubmit} className="grid grid-cols-3">
+        <InputRHF
           control={control}
-          name={fieldNames.published}
-          label={labels.published}
-          className="mr-2"
+          name={fieldNames.title}
+          label={labels.title}
         />
-        <button className="btn" type="submit">
-          Salvar
-        </button>
-      </div>
-    </form>
+        <InputRHF
+          control={control}
+          name={fieldNames.subtitle}
+          label={labels.subtitle}
+        />
+
+        <InputRHF
+          control={control}
+          name={fieldNames.image}
+          label={labels.image}
+        />
+
+        {/* <input type="checkbox" checked="checked" className="checkbox" /> */}
+        <InputRHF
+          control={control}
+          name={fieldNames.site}
+          label={labels.site}
+        />
+        <InputRHF
+          control={control}
+          name={fieldNames.description}
+          label={labels.description}
+          className="col-span-2"
+        />
+        <TextAreaRHF
+          control={control}
+          name={fieldNames.content}
+          label={labels.content}
+          className="col-span-3"
+        />
+        <div className="flex justify-end col-span-3 mt-4">
+          <CheckboxRHF
+            control={control}
+            name={fieldNames.published}
+            label={labels.published}
+            className="mr-2"
+          />
+          <button className="btn" type="submit">
+            Salvar
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
+
+export default NewPost;

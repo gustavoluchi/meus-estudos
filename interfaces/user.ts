@@ -12,4 +12,5 @@ export type UserType = {
   emailVerified: ISODateString | null;
   createdAt: ISODateString;
   updatedAt: ISODateString;
+  phone?: string | null;
 };

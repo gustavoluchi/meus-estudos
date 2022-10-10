@@ -2,15 +2,15 @@ import {SecondHalfNavbar} from 'modules/structure/SecondHalfNavbar';
 
 export const NavBar = () => {
   return (
-    <div className="navbar bg-base-100 flex shrink-0 grow justify-between">
+    <div className="flex justify-between navbar bg-base-100 shrink-0 grow">
       {/* <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a className="text-xl normal-case btn btn-ghost">daisyUI</a>
       </div> */}
       <section className="flex-col flex w-[200%] items-start md:justify-between mt-16 mb-16 md:mb-12">
-        <h1 className="text-3xl md:text-6xl font-bold tracking-tighter leading-tight">
+        <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl">
           Meus Estudos
         </h1>
-        <h4 className="text-lg text-left mt-5 ml-4">
+        <h4 className="mt-5 ml-4 text-lg text-left">
           Aprenda e estude com profissionais.
         </h4>
       </section>
@@ -24,7 +24,7 @@ export const NavBar = () => {
             <div className="indicator">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
+                className="w-5 h-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -41,10 +41,10 @@ export const NavBar = () => {
           </label>
           <div
             tabIndex={0}
-            className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow"
+            className="mt-3 shadow card card-compact dropdown-content w-52 bg-base-100"
           >
             <div className="card-body">
-              <span className="font-bold text-lg">8 Items</span>
+              <span className="text-lg font-bold">8 Items</span>
               <span className="text-info">Subtotal: $999</span>
               <div className="card-actions">
                 <button className="btn btn-primary btn-block">View cart</button>

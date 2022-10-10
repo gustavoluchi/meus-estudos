@@ -1,9 +1,9 @@
 import {useController} from 'react-hook-form';
 
-export default function InputRHF({name, control, label}: any) {
+export default function InputRHF({name, control, label, className}: any) {
   const {field, fieldState} = useController({name, control});
   return (
-    <div className="form-control w-full max-w-xs">
+    <div className={`form-control w-full px-2 ${className}`}>
       <label className="label">
         <span className="label-text">{label}</span>
       </label>
@@ -11,7 +11,7 @@ export default function InputRHF({name, control, label}: any) {
         {...field}
         type="text"
         // placeholder="Type here"
-        className={`input input-bordered w-full max-w-xs ${
+        className={`input input-bordered w-full ${
           fieldState.error && 'input-error'
         }`}
       />

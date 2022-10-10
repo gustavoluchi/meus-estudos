@@ -1,36 +1,41 @@
 import NavBar from '@/components/NavBar';
-import {useEffect} from 'react';
-import {themeChange} from 'theme-change';
+import {ReactElement} from 'react';
 import Container from '../components/container';
 import HeroPost from '../components/hero-post';
 import Layout from '../components/layout';
 import MoreStories from '../components/more-stories';
 import {PostType} from '../interfaces/post';
 import {getManyPosts} from '../lib/api';
+import {NextPageWithLayout} from './_app';
 
 type Props = {
   allPosts: PostType[];
 };
 
-export default function Index({allPosts}: Props) {
+const Index: NextPageWithLayout<Props> = ({allPosts}) => {
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
-  useEffect(() => {
-    themeChange(false);
-  }, []);
 
   return (
     <>
-      <Layout>
-        <Container>
-          <NavBar />
-          {heroPost && <HeroPost infos={heroPost} />}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
-      </Layout>
+      {heroPost && <HeroPost infos={heroPost} />}
+      {morePosts.length > 0 && <MoreStories posts={morePosts} />}
     </>
   );
-}
+};
+
+export default Index;
+
+Index.getLayout = function getLayout(page: ReactElement) {
+  return (
+    <Layout pageTitle="Página inicial">
+      <Container>
+        <NavBar />
+        {page}
+      </Container>
+    </Layout>
+  );
+};
 
 export const getStaticProps = async () => {
   const allPosts = await getManyPosts();

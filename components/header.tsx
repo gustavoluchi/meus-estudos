@@ -3,15 +3,15 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <div className="navbar flex shrink-0 grow justify-between">
+    <div className="flex justify-between navbar shrink-0 grow">
       <div className="w-full">
-        <h2 className="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight mb-20 mt-8">
+        <h2 className="mt-8 mb-20 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter">
           <Link href="/">
             <a className="hover:underline">Meus Estudos</a>
           </Link>
         </h2>
       </div>
-      <SecondHalfNavbar />
+      <SecondHalfNavbar hideNewText />
     </div>
   );
 };

@@ -40,6 +40,7 @@
     "yup": "1.0.0-beta.7"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.7",
     "@types/bcryptjs": "^2.4.2",
     "@types/node": "^18.0.3",
     "@types/react": "^18.0.15",

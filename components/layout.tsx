@@ -1,21 +1,22 @@
-import Alert from './alert';
+import Footer from './footer';
 import Meta from './meta';
+import MetaTitle from './metaTitle';
 
 type Props = {
-  preview?: boolean;
   children: React.ReactNode;
+  pageTitle?: string;
 };
 
-const Layout = ({preview, children}: Props) => {
+const Layout = ({children, pageTitle}: Props) => {
   return (
-    <>
-      <Meta />
-      <div className="min-h-screen">
-        <Alert preview={preview} />
-        <main>{children}</main>
+    <div className="flex flex-col justify-between min-h-screen ">
+      <Meta>{pageTitle && <MetaTitle pageTitle={pageTitle} />}</Meta>
+      <main>{children}</main>
+      <div>
+        <div className="divider" />
+        <Footer />
       </div>
-      {/* <Footer /> */}
-    </>
+    </div>
   );
 };
 
