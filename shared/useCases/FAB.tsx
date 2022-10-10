@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
 export const FAB = ({title, phone}: {title?: string | null; phone: string}) => {
-  console.log(title);
   const url = new URL(`https://wa.me/${phone}`);
   const introText = `Olá, li seu texto${
     title && ` "${title}"`
@@ -12,7 +11,6 @@ export const FAB = ({title, phone}: {title?: string | null; phone: string}) => {
       className="absolute tooltip tooltip-left right-32 bottom-40"
       data-tip="Entre em contato e agende sua aula."
     >
-      {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
       <a
         aria-label="entre em contato"
         className="ml-1 btn btn-link"

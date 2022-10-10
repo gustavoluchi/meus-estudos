@@ -12,13 +12,7 @@ import PostTitle from '../../../components/post-title';
 import type {PostType} from '../../../interfaces/post';
 import {getAllPosts, getPostBySlug} from '../../../lib/api';
 
-type Props = {
-  post: PostType;
-  morePosts: PostType[];
-  preview?: boolean;
-};
-
-export default function Post({post, morePosts, preview}: Props) {
+export default function Post({post}: {post: PostType}) {
   const router = useRouter();
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
@@ -30,12 +24,7 @@ export default function Post({post, morePosts, preview}: Props) {
       ) : (
         <>
           <article className="mb-32">
-            <PostHeader
-              title={post.title ?? ''}
-              // coverImage={post.coverImage}
-              // date={post.date}
-              // author={post.author}
-            />
+            <PostHeader title={post.title ?? ''} />
             <PostBody content={post.content ?? ''} />
           </article>
           {post?.User?.phone && (

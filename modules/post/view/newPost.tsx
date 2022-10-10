@@ -36,7 +36,6 @@ function NewPost({props: {control, handleSubmit}}: any) {
           label={labels.image}
         />
 
-        {/* <input type="checkbox" checked="checked" className="checkbox" /> */}
         <InputRHF
           control={control}
           name={fieldNames.site}
@@ -59,7 +58,7 @@ function NewPost({props: {control, handleSubmit}}: any) {
             control={control}
             name={fieldNames.published}
             label={labels.published}
-            className="mr-2"
+            className="mr-4"
           />
           <button className="btn" type="submit">
             Salvar
