@@ -1,9 +1,10 @@
 import {msg} from '@/shared/useCases/messages';
 import yup from '@/shared/utils/yup/translatedYup';
 import {yupResolver} from '@hookform/resolvers/yup';
+import {useSession} from 'next-auth/react';
 import {useForm} from 'react-hook-form';
 import {toast} from 'react-toastify';
-import {postService} from '../infra/postService';
+import {userService} from '../infra/userService';
 
 const schema = yup.object({
   title: yup.string().required(),
@@ -15,7 +16,7 @@ const schema = yup.object({
   site: yup.string()
 });
 
-export default function useNewPost() {
+export default function useEditUserInfo() {
   const {control, handleSubmit: submit} = useForm({
     reValidateMode: 'onBlur',
     defaultValues: {
@@ -29,9 +30,11 @@ export default function useNewPost() {
     },
     resolver: yupResolver(schema)
   });
+  const {data} = useSession();
+
+  // userService.findById(  data?.user?.id);
   const handleSubmit = submit(async args => {
-    const service = postService();
-    const result = await service.create(args);
+    const result = await userService.create(args);
     if (result.isRight()) {
       return toast(msg.post.success, {type: 'success'});
     }

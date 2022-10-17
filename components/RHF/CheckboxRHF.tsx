@@ -1,12 +1,20 @@
 import {useController} from 'react-hook-form';
 
-export default function CheckboxRHF({name, control, label, className}: any) {
+export default function CheckboxRHF({
+  name,
+  control,
+  label,
+  className,
+  required
+}: any) {
   const {field} = useController({name, control});
 
   return (
     <div className={`form-control ${className}`}>
-      <label className="label cursor-pointer">
-        <span className="label-text mr-2">{label}</span>
+      <label className="cursor-pointer label">
+        <span className="mr-2 label-text">
+          {label} {required && '*'}
+        </span>
         <input type="checkbox" className="checkbox" {...field} />
       </label>
     </div>

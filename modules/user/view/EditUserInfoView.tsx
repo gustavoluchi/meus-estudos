@@ -1,6 +1,8 @@
 import CheckboxRHF from '@/components/RHF/CheckboxRHF';
 import InputRHF from '@/components/RHF/InputRHF';
 import TextAreaRHF from '@/components/RHF/TextAreaRHF';
+import {BaseSyntheticEvent} from 'react';
+import type {Control} from 'react-hook-form';
 import {keyNameMirror} from 'shared/utils/keyNameMirror';
 
 const labels = {
@@ -14,7 +16,14 @@ const labels = {
 };
 const fieldNames = keyNameMirror(labels);
 
-function NewPost({props: {control, handleSubmit}}: any) {
+function EditUserInfoView({
+  props: {control, handleSubmit}
+}: {
+  props: {
+    control: Control<any>;
+    handleSubmit: (e?: BaseSyntheticEvent) => any;
+  };
+}) {
   return (
     <div className="mb-4 prose max-w-none">
       <h2>Novo texto</h2>
@@ -72,4 +81,4 @@ function NewPost({props: {control, handleSubmit}}: any) {
   );
 }
 
-export default NewPost;
+export default EditUserInfoView;

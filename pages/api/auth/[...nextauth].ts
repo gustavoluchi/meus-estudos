@@ -26,9 +26,9 @@ export const authOptions = {
   ],
   secret: process.env.SECRET,
   pages: {
-    signIn: `/login`,
-    verifyRequest: `/login`,
-    error: '/login' // Error code passed in query string as ?error=
+    signIn: `/`,
+    verifyRequest: `/`,
+    error: '/' // Error code passed in query string as ?error=
   },
   adapter: PrismaAdapter(prisma),
   callbacks: {
