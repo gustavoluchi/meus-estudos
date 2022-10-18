@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const FAB = ({title, phone}: {title?: string | null; phone: string}) => {
   const url = new URL(`https://wa.me/${phone}`);
@@ -11,7 +12,7 @@ export const FAB = ({title, phone}: {title?: string | null; phone: string}) => {
       className="absolute tooltip tooltip-left right-32 bottom-40"
       data-tip="Entre em contato e agende sua aula."
     >
-      <a
+      <Link
         aria-label="entre em contato"
         className="ml-1 btn btn-link"
         href={url.toString()}
@@ -25,7 +26,7 @@ export const FAB = ({title, phone}: {title?: string | null; phone: string}) => {
           width="40"
           quality="100"
         />
-      </a>
+      </Link>
     </div>
   );
 };

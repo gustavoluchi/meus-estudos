@@ -1,5 +1,5 @@
 import {signOut, useSession} from 'next-auth/react';
-import {toast} from 'react-toastify';
+import Link from 'next/link';
 import GithubLoginButton from './GithubLoginButton';
 
 export default function NavbarAvatar() {
@@ -34,21 +34,14 @@ export default function NavbarAvatar() {
           className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
         >
           <li>
-            <a
-              className="justify-between"
-              onClick={() => {
-                toast('aeee', {type: 'info'});
-              }}
-            >
-              Profile
-              <span className="badge">New</span>
-            </a>
+            <Link className="justify-between" href="/minha-conta">
+              Minha conta
+            </Link>
           </li>
           <li>
-            <a>Settings</a>
-          </li>
-          <li>
-            <button onClick={() => signOut()}>Logout</button>
+            <button type="button" onClick={() => signOut()}>
+              Logout
+            </button>
           </li>
         </ul>
       </div>

@@ -56,7 +56,7 @@ function NewPost({props: {control, handleSubmit}}: any) {
           className="col-span-3"
           required
         />
-        <div className="flex justify-end col-span-3 mt-4">
+        <div className="flex justify-end col-span-3 px-2 mt-4">
           <CheckboxRHF
             control={control}
             name={fieldNames.published}

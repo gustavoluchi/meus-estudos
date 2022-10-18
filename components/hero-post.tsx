@@ -18,9 +18,9 @@ const HeroPost = ({infos}: {infos: PostType}) => {
           />
         </div>
       )}
-      <div className="md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
+      <div className="mb-20 md:gap-x-16 lg:gap-x-8 md:mb-28">
         <div>
-          <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
+          <h3 className="mb-4 text-4xl leading-tight lg:text-5xl">
             <Link
               as={`/${User?.gh_username}/posts/${slug}`}
               href="/[User]/posts/[slug]"
@@ -28,12 +28,12 @@ const HeroPost = ({infos}: {infos: PostType}) => {
               <a className="hover:underline">{title}</a>
             </Link>
           </h3>
-          <div className="mb-4 md:mb-0 text-lg">
+          <div className="mb-4 text-lg md:mb-0">
             <DateFormatter dateString={createdAt} />
           </div>
         </div>
         <div>
-          <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
+          <p className="mb-4 text-lg leading-relaxed">{excerpt}</p>
           <Avatar name={User?.name ?? 'erro'} picture={User?.image} />
         </div>
       </div>

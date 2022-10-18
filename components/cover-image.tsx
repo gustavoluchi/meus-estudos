@@ -28,8 +28,9 @@ const CoverImage = ({title, src, slug, User}: Props) => {
         <Link
           as={`/${User?.gh_username}/posts/${slug}`}
           href="/[User]/posts/[slug]"
+          aria-label={title}
         >
-          <a aria-label={title}>{image}</a>
+          {image}
         </Link>
       ) : (
         image

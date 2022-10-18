@@ -15,5 +15,11 @@ export const userService = {
       url: `${BASE_URL}${userId}`,
       method: 'GET'
     });
+  },
+  myInfo: () => {
+    return requestBuilder({
+      url: `${BASE_URL}my-info`,
+      method: 'GET'
+    });
   }
 };

@@ -1,8 +1,8 @@
 import {msg} from '@/shared/useCases/messages';
 import yup from '@/shared/utils/yup/translatedYup';
 import {yupResolver} from '@hookform/resolvers/yup';
-import {useSession} from 'next-auth/react';
 import {useForm} from 'react-hook-form';
+import {useQuery} from 'react-query';
 import {toast} from 'react-toastify';
 import {userService} from '../infra/userService';
 
@@ -30,9 +30,11 @@ export default function useEditUserInfo() {
     },
     resolver: yupResolver(schema)
   });
-  const {data} = useSession();
+  const {data, isLoading} = useQuery({
+    queryKey: ['my-info'],
+    queryFn: () => userService.myInfo()
+  });
 
-  // userService.findById(  data?.user?.id);
   const handleSubmit = submit(async args => {
     const result = await userService.create(args);
     if (result.isRight()) {
@@ -40,5 +42,5 @@ export default function useEditUserInfo() {
     }
     return toast(msg.post.error, {type: 'error'});
   });
-  return {control, handleSubmit};
+  return {control, handleSubmit, data, isLoading};
 }

@@ -4,6 +4,7 @@ import {SessionProvider} from 'next-auth/react';
 import type {AppProps} from 'next/app';
 import {ReactElement, ReactNode} from 'react';
 import {I18nProvider, OverlayContainer, SSRProvider} from 'react-aria';
+import {QueryClient, QueryClientProvider} from 'react-query';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/index.css';
@@ -24,22 +25,25 @@ export default function MyApp({
 }: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
   const getLayout = Component.getLayout ?? (page => page);
+  const queryClient = new QueryClient();
 
   return (
     <I18nProvider locale="pt-BR">
       <SSRProvider>
-        <OverlayContainer>
-          <SessionProvider session={session}>
-            {getLayout(<Component {...pageProps} />)}
-            <ToastContainer
-              closeButton
-              hideProgressBar
-              pauseOnHover
-              newestOnTop
-              position="bottom-right"
-            />
-          </SessionProvider>
-        </OverlayContainer>
+        <QueryClientProvider client={queryClient}>
+          <OverlayContainer>
+            <SessionProvider session={session}>
+              {getLayout(<Component {...pageProps} />)}
+              <ToastContainer
+                closeButton
+                hideProgressBar
+                pauseOnHover
+                newestOnTop
+                position="bottom-right"
+              />
+            </SessionProvider>
+          </OverlayContainer>
+        </QueryClientProvider>
       </SSRProvider>
     </I18nProvider>
   );
