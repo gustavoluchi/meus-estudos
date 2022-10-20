@@ -27,6 +27,6 @@ export default async function handle(
     }
   });
   if (result === null) return res.status(404).json({error: 'user not found.'});
-  const {gh_username, email, image, name, phone} = result;
-  return res.json({gh_username, email, image, name, phone});
+  const {gh_username, email, image, name, username, phone} = result;
+  return res.json({gh_username, email, image, name, username, phone});
 }
