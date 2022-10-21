@@ -2,18 +2,15 @@ import {SecondHalfNavbar} from 'modules/structure/SecondHalfNavbar';
 
 export const NavBar = () => {
   return (
-    <div className="flex justify-between navbar bg-base-100 shrink-0 grow">
-      {/* <div className="flex-1">
-        <a className="text-xl normal-case btn btn-ghost">daisyUI</a>
-      </div> */}
-      <section className="flex-col flex w-[200%] items-start md:justify-between mt-16 mb-16 md:mb-12">
+    <div className="flex justify-between navbar shrink-0 grow">
+      <div className="flex-col flex w-[200%] items-start md:justify-between mt-16 mb-16 md:mb-12">
         <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl">
           Meus Estudos
         </h1>
         <h4 className="mt-5 ml-4 text-lg text-left">
           Aprenda e estude com profissionais.
         </h4>
-      </section>
+      </div>
       <SecondHalfNavbar />
     </div>
   );
