@@ -29,7 +29,7 @@ function EditUserInfoView({
       <div className="flex flex-col items-center justify-center w-full">
         {isLoading ? (
           <>
-            <p>Carregando seus dados, aguarde...</p>
+            <p>Carregando seus dados, aguarde... </p>
             <progress className="w-56 progress"></progress>
           </>
         ) : (
