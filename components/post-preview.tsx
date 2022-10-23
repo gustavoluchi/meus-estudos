@@ -25,12 +25,17 @@ const PostPreview = ({
     <div>
       {coverImage && (
         <div className="mb-5">
-          <CoverImage slug={slug} title={title} src={coverImage} />
+          <CoverImage
+            slug={slug}
+            title={title}
+            src={coverImage}
+            User={author}
+          />
         </div>
       )}
       <h3 className="mb-3 text-3xl leading-snug">
         <Link
-          as={`/${author?.gh_username}/posts/${slug}`}
+          as={`/${author?.username ?? author?.gh_username}/posts/${slug}`}
           href="/[User]/posts/[slug]"
         >
           <a className="hover:underline">{title}</a>

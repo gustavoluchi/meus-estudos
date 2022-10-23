@@ -37,7 +37,6 @@ export const authOptions = {
       user: {
         ...session.user,
         id: user.id,
-        username: user.gh_username,
         email: user.email
       }
     })

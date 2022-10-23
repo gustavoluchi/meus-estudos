@@ -11,7 +11,7 @@ function selectHelper(fields: string[] = []) {
 
 // const postsDirectory = join(process.cwd(), '_posts');
 
-export async function getManyPosts(howMany = 4) {
+export async function getManyPosts(howMany: number = 4) {
   return prisma.post.findMany({
     // orderBy: {updatedAt: 'desc'},
     take: howMany,

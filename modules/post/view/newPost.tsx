@@ -8,7 +8,7 @@ const labels = {
   subtitle: 'Subtítulo',
   description: 'Descrição',
   content: 'Conteúdo',
-  image: 'Imagem',
+  image: 'Link da imagem ¹',
   published: 'Publicar?',
   site: 'Link'
 };
@@ -56,16 +56,22 @@ function NewPost({props: {control, handleSubmit}}: any) {
           className="col-span-3"
           required
         />
-        <div className="flex justify-end col-span-3 px-2 mt-4">
-          <CheckboxRHF
-            control={control}
-            name={fieldNames.published}
-            label={labels.published}
-            className="mr-4"
-          />
-          <button className="btn" type="submit">
-            Salvar
-          </button>
+        <div className="flex justify-between col-span-3 px-2 mt-4">
+          <p>
+            1. Por enquanto só aceita links do{' '}
+            <a href="https://unsplash.com">unsplash.com</a>.
+          </p>
+          <div className="flex items-center">
+            <CheckboxRHF
+              control={control}
+              name={fieldNames.published}
+              label={labels.published}
+              className="mr-4"
+            />
+            <button className="btn" type="submit">
+              Salvar
+            </button>
+          </div>
         </div>
       </form>
     </div>

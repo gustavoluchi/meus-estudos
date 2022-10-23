@@ -1,9 +1,8 @@
 import NavBar from '@/components/NavBar';
 import {ReactElement} from 'react';
 import Container from '../components/container';
-import HeroPost from '../components/hero-post';
 import Layout from '../components/layout';
-import MoreStories from '../components/more-stories';
+import PostList from '../components/PostList';
 import {PostType} from '../interfaces/post';
 import {getManyPosts} from '../lib/api';
 import {NextPageWithLayout} from './_app';
@@ -13,13 +12,9 @@ type Props = {
 };
 
 const Index: NextPageWithLayout<Props> = ({allPosts}) => {
-  const heroPost = allPosts[0];
-  const morePosts = allPosts.slice(1);
-
   return (
     <>
-      {heroPost && <HeroPost infos={heroPost} />}
-      {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+      <PostList posts={allPosts} />
     </>
   );
 };
@@ -52,6 +47,7 @@ export const getStaticProps = async () => {
           emailVerified: post?.User?.emailVerified?.toISOString() ?? null
         }
       }))
-    }
+    },
+    revalidate: 60 // seconds
   };
 };

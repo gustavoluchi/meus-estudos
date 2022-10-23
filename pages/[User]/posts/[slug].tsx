@@ -81,7 +81,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       return {
         params: {
           slug: post.slug,
-          User: post.User?.gh_username ?? undefined
+          User: post.User?.username ?? post.User?.gh_username ?? undefined
         }
       };
     }),
