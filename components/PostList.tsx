@@ -1,5 +1,5 @@
 import type {PostType} from '../interfaces/post';
-import PostPreviewV2 from './post-previewV2';
+import PostCard from './PostCard';
 
 type Props = {
   posts: PostType[];
@@ -13,7 +13,7 @@ const PostList = ({posts}: Props) => {
       </h2>
       <div className="grid grid-cols-1 mb-32 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32">
         {posts.map(post => (
-          <PostPreviewV2
+          <PostCard
             key={post.slug}
             title={post.title ?? ''}
             coverImage={post.image ?? ''}

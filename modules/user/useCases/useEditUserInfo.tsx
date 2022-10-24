@@ -35,7 +35,6 @@ export default function useEditUserInfo() {
     queryFn: async () => {
       const userInfo = await userService.myInfo();
       if (userInfo.isRight()) {
-        console.log(userInfo.value.data);
         const {email, name, image, phone, username}: any = userInfo.value.data;
         reset({
           email: email ?? '',
