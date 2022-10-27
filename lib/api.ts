@@ -56,10 +56,3 @@ export async function getPostBySlug(slug: string) {
 
   // return post;
 }
-
-export async function getAllPosts() {
-  return getPostSlugs();
-  //TODO: tirar depois de ver funcionando .map(slug => getPostBySlug(slug, fields))
-  // sort posts by date in descending order
-  // return slugs;
-}

@@ -4,7 +4,7 @@ import Container from '../components/container';
 import Layout from '../components/layout';
 import PostList from '../components/PostList';
 import {PostType} from '../interfaces/post';
-import {getManyPosts} from '../lib/api';
+import {getPostSlugs} from '../lib/api';
 import {NextPageWithLayout} from './_app';
 
 type Props = {
@@ -33,7 +33,7 @@ Index.getLayout = function getLayout(page: ReactElement) {
 };
 
 export const getStaticProps = async () => {
-  const allPosts = await getManyPosts();
+  const allPosts = await getPostSlugs(); //TODO: quando houver paginação, utilizar getManyPosts
   return {
     props: {
       allPosts: allPosts.map(post => ({
