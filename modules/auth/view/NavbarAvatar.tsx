@@ -18,15 +18,27 @@ export default function NavbarAvatar() {
               </div>
             </div>
           ) : (
-            <div className="avatar">
-              <div className="w-12 rounded-full">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={session?.user?.image ?? ''} //TODO: por uma imagem de fallback
-                  alt="foto do joe"
-                />
-              </div>
-            </div>
+            <>
+              {session?.user.image ? (
+                <div className="avatar">
+                  <div className="w-12 rounded-full">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={session?.user?.image ?? ''} //TODO: por uma imagem de fallback
+                      alt="seu avatar"
+                    />
+                  </div>
+                </div>
+              ) : (
+                <div className="avatar placeholder">
+                  <div className="w-12 rounded-full bg-neutral-focus text-neutral-content">
+                    <p className="text-2xl">
+                      {session?.user?.username?.substring(0, 3) ?? ''}
+                    </p>
+                  </div>
+                </div>
+              )}
+            </>
           )}
         </label>
         <ul
