@@ -1,3 +1,4 @@
+import DateFormatter from '@/components/date-formatter';
 import markdownToHtml from '@/lib/markdownToHtml';
 import {FAB} from '@/shared/useCases/FAB';
 import {GetStaticPaths} from 'next';
@@ -7,7 +8,6 @@ import Container from '../../../components/container';
 import Header from '../../../components/header';
 import Layout from '../../../components/layout';
 import PostBody from '../../../components/post-body';
-import PostHeader from '../../../components/post-header';
 import PostTitle from '../../../components/post-title';
 import type {PostType} from '../../../interfaces/post';
 import {getPostBySlug, getPostSlugs} from '../../../lib/api';
@@ -24,8 +24,37 @@ export default function Post({post}: {post: PostType}) {
       ) : (
         <>
           <article className="mb-32">
-            <PostHeader title={post.title ?? ''} />
+            {post.title && <PostTitle>{post.title}</PostTitle>}
             <PostBody content={post.content ?? ''} />
+            <br />
+            <div className="flex justify-end">
+              <div className="mr-4">
+                <p className="text-right">
+                  Escrito por{' '}
+                  {post.User?.name ??
+                    post.User?.username ??
+                    post.User?.gh_username}
+                  .
+                </p>
+                <p className="text-right">
+                  publicado em <DateFormatter dateString={post.createdAt} />.
+                </p>
+              </div>
+              {post.User?.image && (
+                <picture>
+                  <img
+                    src={post.User?.image}
+                    className="w-12 h-12 mr-4 rounded-full"
+                    alt={
+                      post.User?.name ??
+                      post.User?.username ??
+                      post.User?.gh_username ??
+                      ''
+                    }
+                  />
+                </picture>
+              )}
+            </div>
           </article>
           {post?.User?.phone && (
             <FAB title={post.title} phone={post.User.phone} />

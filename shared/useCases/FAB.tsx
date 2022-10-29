@@ -9,7 +9,7 @@ export const FAB = ({title, phone}: {title?: string | null; phone: string}) => {
   url.searchParams.append('text', introText);
   return (
     <div
-      className="absolute tooltip tooltip-left right-32 bottom-40"
+      className="fixed tooltip tooltip-left right-4 bottom-4 lg:right-32 lg:bottom-40"
       data-tip="Entre em contato e agende sua aula."
     >
       <Link
@@ -26,6 +26,7 @@ export const FAB = ({title, phone}: {title?: string | null; phone: string}) => {
             height="40"
             width="40"
             quality="100"
+            className="duration-150 ease-linear hover:scale-105 active:scale-95"
           />
         </a>
       </Link>
