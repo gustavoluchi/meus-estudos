@@ -58,8 +58,8 @@ function NewPost({props: {control, handleSubmit}}: any) {
         />
         <div className="flex justify-between col-span-3 px-2 mt-4">
           <p>
-            1. Por enquanto só aceita links do{' '}
-            <a href="https://unsplash.com">unsplash.com</a>.
+            1. Por enquanto, só imagens do{' '}
+            <a href="https://unsplash.com">unsplash.com</a> são aceitas.
           </p>
           <div className="flex items-center">
             <CheckboxRHF
