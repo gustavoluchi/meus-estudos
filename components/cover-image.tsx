@@ -10,7 +10,7 @@ const CoverImage = ({title, src}: Props) => {
     <div className="relative flex items-start w-full bg-base-200 h-72 sm:mx-0">
       <Image
         src={src}
-        alt={`Cover Image for ${title}`}
+        alt={`Imagem de fundo para ${title}`}
         layout="fill"
         objectFit="contain"
       />

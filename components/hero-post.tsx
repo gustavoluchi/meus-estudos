@@ -10,12 +10,7 @@ const HeroPost = ({infos}: {infos: PostType}) => {
     <section>
       {image && (
         <div className="mb-8 md:mb-16">
-          <CoverImage
-            title={title ?? 'erro titulo'}
-            src={image}
-            slug={slug}
-            User={User}
-          />
+          <CoverImage title={title ?? 'erro titulo'} src={image} />
         </div>
       )}
       <div className="mb-20 md:gap-x-16 lg:gap-x-8 md:mb-28">
