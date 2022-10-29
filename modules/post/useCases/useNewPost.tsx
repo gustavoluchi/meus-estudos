@@ -32,10 +32,19 @@ export default function useNewPost() {
   const handleSubmit = submit(async args => {
     const service = postService();
     const result = await service.create(args);
+    const toastId = toast.loading('Salvando seu texto...');
     if (result.isRight()) {
-      return toast(msg.post.success, {type: 'success'});
+      return toast.update(toastId, {
+        render: msg.post.success,
+        type: 'success',
+        isLoading: false
+      });
     }
-    return toast(msg.post.error, {type: 'error'});
+    return toast.update(toastId, {
+      render: msg.post.error,
+      type: 'error',
+      isLoading: false
+    });
   });
   return {control, handleSubmit};
 }
