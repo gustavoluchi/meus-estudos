@@ -31,19 +31,23 @@ export default function useNewPost() {
   });
   const handleSubmit = submit(async args => {
     const service = postService();
-    const result = await service.create(args);
+    const result = service.create(args);
     const toastId = toast.loading('Salvando seu texto...');
-    if (result.isRight()) {
+    if ((await result).isRight()) {
       return toast.update(toastId, {
         render: msg.post.success,
         type: 'success',
-        isLoading: false
+        isLoading: false,
+        autoClose: 5000,
+        closeButton: null
       });
     }
     return toast.update(toastId, {
       render: msg.post.error,
       type: 'error',
-      isLoading: false
+      isLoading: false,
+      autoClose: 5000,
+      closeButton: null
     });
   });
   return {control, handleSubmit};

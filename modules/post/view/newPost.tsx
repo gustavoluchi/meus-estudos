@@ -61,6 +61,10 @@ function NewPost({props: {control, handleSubmit}}: any) {
             1. Por enquanto, só imagens do{' '}
             <a href="https://unsplash.com">unsplash.com</a> são aceitas.
           </p>
+          <p>
+            * Novas postagens têm um atraso de 10 segundos para aparecerem na
+            tela inicial.
+          </p>
           <div className="flex items-center">
             <CheckboxRHF
               control={control}

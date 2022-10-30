@@ -36,9 +36,11 @@ export default function MyApp({
               {getLayout(<Component {...pageProps} />)}
               <ToastContainer
                 closeButton
+                closeOnClick
                 hideProgressBar
                 pauseOnHover
                 newestOnTop
+                autoClose={5000}
                 position="bottom-right"
               />
             </SessionProvider>
