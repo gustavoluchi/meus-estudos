@@ -1,18 +1,18 @@
-import markdownStyles from './markdown-styles.module.css'
+import markdownStyles from './markdown-styles.module.css';
 
 type Props = {
-  content: string
-}
+  content: string;
+};
 
-const PostBody = ({ content }: Props) => {
+const PostBody = ({content}: Props) => {
   return (
-    <div className="max-w-2xl mx-auto">
+    <article className="max-w-2xl mx-auto prose">
       <div
         className={markdownStyles['markdown']}
-        dangerouslySetInnerHTML={{ __html: content }}
+        dangerouslySetInnerHTML={{__html: content}}
       />
-    </div>
-  )
-}
+    </article>
+  );
+};
 
-export default PostBody
+export default PostBody;

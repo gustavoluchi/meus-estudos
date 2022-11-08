@@ -7,7 +7,7 @@ const labels = {
   title: 'Título',
   subtitle: 'Subtítulo',
   description: 'Descrição',
-  content: 'Conteúdo',
+  content: 'Conteúdo ²',
   image: 'Link da imagem ¹',
   published: 'Publicar?',
   site: 'Link'
@@ -77,6 +77,9 @@ function NewPost({props: {control, handleSubmit}}: any) {
             </button>
           </div>
         </div>
+        <p className="flex justify-between col-span-3 px-2 mt-4">
+          2. Sintaxe markdown disponível.
+        </p>
       </form>
     </div>
   );
