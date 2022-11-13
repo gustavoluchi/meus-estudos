@@ -19,8 +19,9 @@ const HeroPost = ({infos}: {infos: PostType}) => {
             <Link
               as={`/${User?.username ?? User?.gh_username}/posts/${slug}`}
               href="/[User]/posts/[slug]"
+              className="hover:underline"
             >
-              <a className="hover:underline">{title}</a>
+              {title}
             </Link>
           </h3>
           <div className="mb-4 text-lg md:mb-0">

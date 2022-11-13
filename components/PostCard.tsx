@@ -1,4 +1,4 @@
-import { UserType } from 'interfaces/user';
+import {UserType} from 'interfaces/user';
 import Link from 'next/link';
 import Avatar from './avatar';
 import CoverImage from './cover-image';
@@ -20,25 +20,23 @@ const PostCard = ({title, coverImage, date, excerpt, author, slug}: Props) => {
       href="/[User]/posts/[slug]"
       aria-label={title}
     >
-      <a>
-        <div className="transition-shadow duration-200 shadow-lg cursor-pointer card w-96 bg-base-100 hover:shadow-2xl">
-          {coverImage && <CoverImage title={title} src={coverImage} />}
-          <div className="card-body">
-            <h2 className="card-title">{title}</h2>
-            <p>{excerpt}</p>
-            <div className="flex items-center justify-between">
-              <p>
-                <DateFormatter dateString={date} />
-              </p>
-              <div className="justify-end pt-4 card-actions">
-                {author?.name && (
-                  <Avatar name={author?.name} picture={author?.image} />
-                )}
-              </div>
+      <div className="transition-shadow duration-200 shadow-lg cursor-pointer card w-96 bg-base-100 hover:shadow-2xl">
+        {coverImage && <CoverImage title={title} src={coverImage} />}
+        <div className="card-body">
+          <h2 className="card-title">{title}</h2>
+          <p>{excerpt}</p>
+          <div className="flex items-center justify-between">
+            <p>
+              <DateFormatter dateString={date} />
+            </p>
+            <div className="justify-end pt-4 card-actions">
+              {author?.name && (
+                <Avatar name={author?.name} picture={author?.image} />
+              )}
             </div>
           </div>
         </div>
-      </a>
+      </div>
     </Link>
   );
 };

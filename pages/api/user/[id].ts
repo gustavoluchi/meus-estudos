@@ -1,5 +1,3 @@
-// pages/api/post/index.ts
-
 import {getSession} from '@/lib/auth/session';
 import {prisma} from '@/shared/infra/prisma';
 import type {NextApiRequest, NextApiResponse} from 'next';

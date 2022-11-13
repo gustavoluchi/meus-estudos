@@ -19,16 +19,14 @@ export const FAB = ({title, phone}: {title?: string | null; phone: string}) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <a>
-          <Image
-            src="/assets/whatsapp.png"
-            alt="Platforms Starter Kit"
-            height="40"
-            width="40"
-            quality="100"
-            className="duration-150 ease-linear hover:scale-105 active:scale-95"
-          />
-        </a>
+        <Image
+          src="/assets/whatsapp.png"
+          alt="Platforms Starter Kit"
+          height="40"
+          width="40"
+          quality="100"
+          className="duration-150 ease-linear hover:scale-105 active:scale-95"
+        />
       </Link>
     </div>
   );

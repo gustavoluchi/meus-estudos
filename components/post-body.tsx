@@ -1,4 +1,5 @@
-import markdownStyles from './markdown-styles.module.css';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 type Props = {
   content: string;
@@ -6,11 +7,8 @@ type Props = {
 
 const PostBody = ({content}: Props) => {
   return (
-    <article className="max-w-2xl mx-auto prose">
-      <div
-        className={markdownStyles['markdown']}
-        dangerouslySetInnerHTML={{__html: content}}
-      />
+    <article className="max-w-4xl mx-auto prose">
+      <ReactMarkdown remarkPlugins={[remarkGfm]} children={content} />
     </article>
   );
 };

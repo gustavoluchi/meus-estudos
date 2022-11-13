@@ -1,5 +1,4 @@
 import DateFormatter from '@/components/date-formatter';
-import markdownToHtml from '@/lib/markdownToHtml';
 import {FAB} from '@/shared/useCases/FAB';
 import {GetStaticPaths} from 'next';
 import ErrorPage from 'next/error';
@@ -84,7 +83,6 @@ type Params = {
 
 export async function getStaticProps({params: {slug}}: Params) {
   const post = await getPostBySlug(slug);
-  const content = await markdownToHtml(post?.content || '');
   return {
     props: {
       post: {
@@ -96,8 +94,7 @@ export async function getStaticProps({params: {slug}}: Params) {
           createdAt: post?.User?.createdAt.toISOString(),
           updatedAt: post?.User?.updatedAt.toISOString(),
           emailVerified: post?.User?.emailVerified?.toISOString() ?? null
-        },
-        content
+        }
       }
     }
   };
