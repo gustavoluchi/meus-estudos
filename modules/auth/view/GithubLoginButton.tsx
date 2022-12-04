@@ -9,7 +9,7 @@ export default function GithubLoginButton() {
     signIn('github');
   };
   return (
-    <div className="min-h-full flex items-end">
+    <div className="flex items-end min-h-full">
       <div
         className="tooltip tooltip-bottom tooltip-primary"
         data-tip="Login com Github"
@@ -21,6 +21,7 @@ export default function GithubLoginButton() {
           className={`${
             loading ? 'cursor-not-allowed bg-gray-600' : 'bg-black'
           } group flex justify-center items-center  w-10 h-10   rounded-full focus:outline-none`}
+          aria-label="botão de login com github"
         >
           {loading ? (
             <div className="w-8 h-8">

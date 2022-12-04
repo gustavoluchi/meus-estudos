@@ -42,6 +42,7 @@ export default function Login() {
             className={`${
               loading ? 'cursor-not-allowed bg-gray-600' : 'bg-black'
             } group flex justify-center items-center space-x-5 w-full sm:px-4 h-16 my-2 rounded-md focus:outline-none`}
+            aria-label="botão de login com github"
           >
             {loading ? (
               <LoadingDots color="#fff" />
