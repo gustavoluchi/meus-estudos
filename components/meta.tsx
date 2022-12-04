@@ -1,12 +1,13 @@
 import Head from 'next/head';
 import {ReactNode} from 'react';
-const logo = '/favicon.ico';
+const logo = '/favicon/favicon.ico';
 const description = `Projeto de conclusão do curso de pós-graduação MBA em desenvolvimento full 
 stack na faculdade XP Educação. Feito por Gustavo Luchi da Silva em 2022.`;
 
 const Meta = ({children}: {children?: ReactNode}) => {
   return (
     <Head>
+      <meta charSet="UTF-8" />
       <link rel="icon" href={logo} />
       <link rel="shortcut icon" type="image/x-icon" href={logo} />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
@@ -33,7 +34,6 @@ const Meta = ({children}: {children?: ReactNode}) => {
         href="/favicon/safari-pinned-tab.svg"
         color="#000000"
       />
-      <meta charSet="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
       <meta itemProp="description" content={description} />
