@@ -6,7 +6,7 @@ stack na faculdade XP Educação. Feito por Gustavo Luchi da Silva em 2022.`;
 const Meta = ({pageTitle = 'Meus estudos'}: {pageTitle?: string}) => {
   return (
     <Head>
-      <meta charSet="UTF-8" />
+      <meta charSet="utf-8" />
       <link rel="icon" href={logo} />
       <link rel="shortcut icon" type="image/x-icon" href={logo} />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />

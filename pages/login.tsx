@@ -1,11 +1,11 @@
 import LoadingDots from '@/components/app/loading-dots';
-import {signIn, useSession} from 'next-auth/react';
+import {signIn} from 'next-auth/react';
 import Image from 'next/image';
 import {useState} from 'react';
 
 export default function Login() {
   const [loading, setLoading] = useState(false);
-  const ae = useSession({required: false});
+  // const ae = useSession({required: false});
   // Get error message added by next/auth in URL.
   // const {query} = useRouter();
   // const {error} = query;
@@ -33,6 +33,7 @@ export default function Login() {
       <div className="w-11/12 mx-auto mt-8 sm:w-full sm:max-w-md">
         <div className="px-4 py-8 bg-white shadow-md sm:rounded-lg sm:px-10">
           <button
+            type="button"
             disabled={loading}
             onClick={() => {
               setLoading(true);

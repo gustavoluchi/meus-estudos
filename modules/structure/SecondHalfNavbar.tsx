@@ -17,7 +17,7 @@ export const SecondHalfNavbar = ({hideNewText}: {hideNewText?: boolean}) => {
       <div className="flex justify-end w-full h-full">
         {showNewTextButton && (
           <Link href="painel/textos/novo">
-            <button className="gap-2 mr-2 btn btn-md btn-primary">
+            <button type="button" className="gap-2 mr-2 btn btn-md btn-primary">
               Novo texto
               <PencilSquareIcon className="w-6 h-6" />
             </button>
