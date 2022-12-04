@@ -1,10 +1,9 @@
 import Head from 'next/head';
-import {ReactNode} from 'react';
 const logo = '/favicon/favicon.ico';
 const description = `Projeto de conclusão do curso de pós-graduação MBA em desenvolvimento full 
 stack na faculdade XP Educação. Feito por Gustavo Luchi da Silva em 2022.`;
 
-const Meta = ({children}: {children?: ReactNode}) => {
+const Meta = ({pageTitle = 'Meus estudos'}: {pageTitle?: string}) => {
   return (
     <Head>
       <meta charSet="UTF-8" />
@@ -53,7 +52,10 @@ const Meta = ({children}: {children?: ReactNode}) => {
       <meta name="msapplication-TileColor" content="#000000" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#000" />
-      {children}
+      <title>{pageTitle}</title>
+      <meta itemProp="name" content={pageTitle} />
+      <meta property="og:title" content={pageTitle} />
+      <meta name="twitter:title" content={pageTitle} />
     </Head>
   );
 };
