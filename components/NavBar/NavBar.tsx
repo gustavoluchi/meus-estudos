@@ -7,9 +7,9 @@ export const NavBar = () => {
         <h1 className="text-3xl font-bold leading-tight tracking-tighter md:text-6xl">
           Meus Estudos
         </h1>
-        <h4 className="mt-5 ml-4 text-lg text-left">
+        <h2 className="mt-5 ml-4 text-lg text-left">
           Aprenda e estude com profissionais.
-        </h4>
+        </h2>
       </div>
       <SecondHalfNavbar />
     </div>
