@@ -96,7 +96,8 @@ export async function getStaticProps({params: {slug}}: Params) {
           emailVerified: post?.User?.emailVerified?.toISOString() ?? null
         }
       }
-    }
+    },
+    revalidate: 60 * 60 * 4 // 4 hours
   };
 }
 
