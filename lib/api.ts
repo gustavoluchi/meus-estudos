@@ -22,7 +22,7 @@ export async function getManyPosts(howMany: number = 4) {
 export function getPostSlugs() {
   // const select = selectHelper(fields);
   return prisma.post.findMany({
-    // orderBy: {updatedAt: 'desc'},
+    orderBy: {updatedAt: 'desc'},
     include: {User: true}
   });
 }
