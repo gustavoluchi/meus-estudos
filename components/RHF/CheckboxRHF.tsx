@@ -1,12 +1,6 @@
 import {useController} from 'react-hook-form';
 
-export default function CheckboxRHF({
-  name,
-  control,
-  label,
-  className,
-  required
-}: any) {
+export default function CheckboxRHF({name, control, label, className, required}: any) {
   const {field} = useController({name, control});
 
   return (

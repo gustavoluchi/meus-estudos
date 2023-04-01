@@ -29,11 +29,7 @@ export default function Post({post}: {post: PostType}) {
             <div className="flex justify-end">
               <div className="mr-4">
                 <p className="text-right">
-                  Escrito por{' '}
-                  {post.User?.name ??
-                    post.User?.username ??
-                    post.User?.gh_username}
-                  .
+                  Escrito por {post.User?.name ?? post.User?.username ?? post.User?.gh_username}.
                 </p>
                 <p className="text-right">
                   publicado em <DateFormatter dateString={post.createdAt} />.
@@ -44,20 +40,13 @@ export default function Post({post}: {post: PostType}) {
                   <img
                     src={post.User?.image}
                     className="w-12 h-12 mr-4 rounded-full"
-                    alt={
-                      post.User?.name ??
-                      post.User?.username ??
-                      post.User?.gh_username ??
-                      ''
-                    }
+                    alt={post.User?.name ?? post.User?.username ?? post.User?.gh_username ?? ''}
                   />
                 </picture>
               )}
             </div>
           </article>
-          {post?.User?.phone && (
-            <FAB title={post.title} phone={post.User.phone} />
-          )}
+          {post?.User?.phone && <FAB title={post.title} phone={post.User.phone} />}
         </>
       )}
     </>

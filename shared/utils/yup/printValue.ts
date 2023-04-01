@@ -8,8 +8,7 @@
 const {toString} = Object.prototype;
 const errorToString = Error.prototype.toString;
 const regExpToString = RegExp.prototype.toString;
-const symbolToString =
-  typeof Symbol !== 'undefined' ? Symbol.prototype.toString : () => '';
+const symbolToString = typeof Symbol !== 'undefined' ? Symbol.prototype.toString : () => '';
 
 const SYMBOL_REGEXP = /^Symbol\((.*)\)(.*)$/;
 
@@ -19,10 +18,7 @@ function printNumber(val: any): string {
   return isNegativeZero ? '-0' : `${val}`;
 }
 
-function printSimpleValue(
-  val: any,
-  quoteStrings: boolean = false
-): string | null {
+function printSimpleValue(val: any, quoteStrings: boolean = false): string | null {
   if (val == null || val === true || val === false) return `${val}`;
 
   const typeOf = typeof val;

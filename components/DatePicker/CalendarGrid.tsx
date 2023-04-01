@@ -27,11 +27,7 @@ export function CalendarGrid({state, ...props}: any) {
             {state
               .getDatesInWeek(weekIndex)
               .map((date: any, i: number) =>
-                date ? (
-                  <CalendarCell key={i} state={state} date={date} />
-                ) : (
-                  <td key={i} />
-                )
+                date ? <CalendarCell key={i} state={state} date={date} /> : <td key={i} />
               )}
           </tr>
         ))}

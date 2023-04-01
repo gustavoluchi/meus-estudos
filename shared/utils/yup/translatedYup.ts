@@ -11,9 +11,7 @@ export const mixed = {
     let msg = `${
       `O campo deve ser do tipo \`${type}\`, ` +
       `mas o valor final é: \`${printValue(value, true)}\``
-    }${
-      isCast ? ` (cast do valor \`${printValue(originalValue, true)}\`).` : '.'
-    }`;
+    }${isCast ? ` (cast do valor \`${printValue(originalValue, true)}\`).` : '.'}`;
 
     if (value === null) {
       msg +=
@@ -27,17 +25,11 @@ export const mixed = {
 
 export const string = {
   length: ({length}: any) =>
-    `O campo deve ter exatamente ${length} ${
-      length === 1 ? 'caractere' : 'caracteres'
-    }.`,
+    `O campo deve ter exatamente ${length} ${length === 1 ? 'caractere' : 'caracteres'}.`,
   min: ({min}: any) =>
-    `O campo deve ter pelo menos ${min} ${
-      min === 1 ? 'caractere' : 'caracteres'
-    }.`,
+    `O campo deve ter pelo menos ${min} ${min === 1 ? 'caractere' : 'caracteres'}.`,
   max: ({max}: any) =>
-    `O campo deve ter no máximo ${max} ${
-      max === 1 ? 'caractere' : 'caracteres'
-    }.`,
+    `O campo deve ter no máximo ${max} ${max === 1 ? 'caractere' : 'caracteres'}.`,
   matches: 'O campo deve corresponder ao padrão: "${regex}".',
   email: 'O campo deve ser um e-mail válido.',
   url: 'O campo deve ser uma URL válida.',
@@ -69,10 +61,8 @@ export const object = {
 };
 
 export const array = {
-  min: ({min}: any) =>
-    `O campo deve ter pelo menos ${min} ${min === 1 ? 'item' : 'itens'}.`,
-  max: ({max}: any) =>
-    `O campo deve ter no máximo ${max} ${max === 1 ? 'item' : 'itens'}.`
+  min: ({min}: any) => `O campo deve ter pelo menos ${min} ${min === 1 ? 'item' : 'itens'}.`,
+  max: ({max}: any) => `O campo deve ter no máximo ${max} ${max === 1 ? 'item' : 'itens'}.`
 };
 
 yup.setLocale({

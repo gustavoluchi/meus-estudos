@@ -17,9 +17,7 @@ export const requestBuilder = async <returnType>({
   data,
   signal,
   headers
-}: FetchBuilderV2Props): Promise<
-  Either<Error | BusinessError, AxiosResponse<returnType>>
-> => {
+}: FetchBuilderV2Props): Promise<Either<Error | BusinessError, AxiosResponse<returnType>>> => {
   try {
     const reqResult = axios({
       method,

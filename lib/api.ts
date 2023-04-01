@@ -9,13 +9,25 @@ function selectHelper(fields: string[] = []) {
   return select;
 }
 
-// const postsDirectory = join(process.cwd(), '_posts');
-
 export async function getManyPosts(howMany: number = 4) {
   return prisma.post.findMany({
     // orderBy: {updatedAt: 'desc'},
     take: howMany,
     include: {User: true}
+    // where: {
+    //   userId
+    // }
+  });
+}
+
+export async function getMyPosts(howMany: number = 4) {
+  return prisma.post.findMany({
+    // orderBy: {updatedAt: 'desc'},
+    take: howMany,
+    include: {User: true}
+    // where: {
+    //   userId:
+    // }
   });
 }
 

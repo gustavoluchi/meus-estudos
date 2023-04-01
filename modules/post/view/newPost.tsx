@@ -19,30 +19,12 @@ function NewPost({props: {control, handleSubmit}}: any) {
     <div className="mb-4 prose max-w-none">
       <h2>Novo texto</h2>
       <form noValidate onSubmit={handleSubmit} className="grid grid-cols-3">
-        <InputRHF
-          control={control}
-          name={fieldNames.title}
-          label={labels.title}
-          required
-        />
-        <InputRHF
-          control={control}
-          name={fieldNames.subtitle}
-          label={labels.subtitle}
-          required
-        />
+        <InputRHF control={control} name={fieldNames.title} label={labels.title} required />
+        <InputRHF control={control} name={fieldNames.subtitle} label={labels.subtitle} required />
 
-        <InputRHF
-          control={control}
-          name={fieldNames.image}
-          label={labels.image}
-        />
+        <InputRHF control={control} name={fieldNames.image} label={labels.image} />
 
-        <InputRHF
-          control={control}
-          name={fieldNames.site}
-          label={labels.site}
-        />
+        <InputRHF control={control} name={fieldNames.site} label={labels.site} />
         <InputRHF
           control={control}
           name={fieldNames.description}
@@ -58,13 +40,10 @@ function NewPost({props: {control, handleSubmit}}: any) {
         />
         <div className="flex justify-between col-span-3 px-2 mt-4">
           <p>
-            1. Por enquanto, só imagens do{' '}
-            <a href="https://unsplash.com">unsplash.com</a> são aceitas.
+            1. Por enquanto, só imagens do <a href="https://unsplash.com">unsplash.com</a> são
+            aceitas.
           </p>
-          <p>
-            * Novas postagens têm um atraso de 10 segundos para aparecerem na
-            tela inicial.
-          </p>
+          <p>* Novas postagens têm um atraso de 10 segundos para aparecerem na tela inicial.</p>
           <div className="flex items-center">
             <CheckboxRHF
               control={control}
@@ -77,9 +56,7 @@ function NewPost({props: {control, handleSubmit}}: any) {
             </button>
           </div>
         </div>
-        <p className="flex justify-between col-span-3 px-2 mt-4">
-          2. Sintaxe markdown disponível.
-        </p>
+        <p className="flex justify-between col-span-3 px-2 mt-4">2. Sintaxe markdown disponível.</p>
       </form>
     </div>
   );

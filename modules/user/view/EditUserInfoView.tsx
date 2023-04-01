@@ -34,33 +34,11 @@ function EditUserInfoView({
           </>
         ) : (
           <>
-            <form
-              noValidate
-              onSubmit={handleSubmit}
-              className="grid w-full grid-cols-3"
-            >
-              <InputRHF
-                control={control}
-                name={fieldNames.name}
-                label={labels.name}
-                required
-              />
-              <InputRHF
-                control={control}
-                name={fieldNames.email}
-                label={labels.email}
-                required
-              />
-              <InputRHF
-                control={control}
-                name={fieldNames.phone}
-                label={labels.phone}
-              />
-              <InputRHF
-                control={control}
-                name={fieldNames.username}
-                label={labels.username}
-              />
+            <form noValidate onSubmit={handleSubmit} className="grid w-full grid-cols-3">
+              <InputRHF control={control} name={fieldNames.name} label={labels.name} required />
+              <InputRHF control={control} name={fieldNames.email} label={labels.email} required />
+              <InputRHF control={control} name={fieldNames.phone} label={labels.phone} />
+              <InputRHF control={control} name={fieldNames.username} label={labels.username} />
               <InputRHF
                 control={control}
                 name={fieldNames.image}

@@ -12,11 +12,7 @@ export class BusinessError extends Error {
     super(message, options);
     this.content = content;
   }
-  static create(options: {
-    message?: string;
-    options?: ErrorOptions;
-    content?: any;
-  }) {
+  static create(options: {message?: string; options?: ErrorOptions; content?: any}) {
     return new BusinessError(options);
   }
 }

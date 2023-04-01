@@ -1,7 +1,4 @@
-import {
-  CalendarDaysIcon,
-  ExclamationCircleIcon
-} from '@heroicons/react/24/outline';
+import {CalendarDaysIcon, ExclamationCircleIcon} from '@heroicons/react/24/outline';
 import {useDatePicker} from '@react-aria/datepicker';
 import {useDatePickerState} from '@react-stately/datepicker';
 import {useRef} from 'react';
@@ -13,14 +10,11 @@ import {Popover} from './Popover';
 export function DatePicker(props: any) {
   let state = useDatePickerState(props);
   let ref = useRef<HTMLDivElement>(null);
-  let {
-    groupProps,
-    labelProps,
-    fieldProps,
-    buttonProps,
-    dialogProps,
-    calendarProps
-  } = useDatePicker(props, state, ref);
+  let {groupProps, labelProps, fieldProps, buttonProps, dialogProps, calendarProps} = useDatePicker(
+    props,
+    state,
+    ref
+  );
 
   return (
     <div className="relative inline-flex flex-col text-left">
@@ -39,11 +33,7 @@ export function DatePicker(props: any) {
         </FieldButton>
       </div>
       {state.isOpen && (
-        <Popover
-          {...dialogProps}
-          isOpen={state.isOpen}
-          onClose={() => state.setOpen(false)}
-        >
+        <Popover {...dialogProps} isOpen={state.isOpen} onClose={() => state.setOpen(false)}>
           <Calendar {...calendarProps} />
         </Popover>
       )}

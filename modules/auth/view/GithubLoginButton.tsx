@@ -10,10 +10,7 @@ export default function GithubLoginButton() {
   };
   return (
     <div className="flex items-end min-h-full">
-      <div
-        className="tooltip tooltip-bottom tooltip-primary"
-        data-tip="Login com Github"
-      >
+      <div className="tooltip tooltip-bottom tooltip-primary" data-tip="Login com Github">
         <button
           disabled={loading}
           onClick={handleLogin}

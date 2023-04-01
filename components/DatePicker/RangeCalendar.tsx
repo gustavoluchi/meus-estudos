@@ -16,8 +16,11 @@ export function RangeCalendar(props: any) {
   });
 
   let ref = useRef<HTMLDivElement>(null);
-  let {calendarProps, prevButtonProps, nextButtonProps, title} =
-    useRangeCalendar(props, state, ref);
+  let {calendarProps, prevButtonProps, nextButtonProps, title} = useRangeCalendar(
+    props,
+    state,
+    ref
+  );
 
   return (
     <div {...calendarProps} ref={ref} className="inline-block">

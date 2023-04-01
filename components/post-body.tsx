@@ -8,7 +8,7 @@ type Props = {
 const PostBody = ({content}: Props) => {
   return (
     <article className="max-w-4xl mx-auto prose">
-       {/* eslint-disable-next-line react/no-children-prop */}
+      {/* eslint-disable-next-line react/no-children-prop */}
       <ReactMarkdown remarkPlugins={[remarkGfm]} children={content} />
     </article>
   );

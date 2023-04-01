@@ -16,10 +16,7 @@ export function Calendar(props: any) {
   });
 
   let ref = useRef<HTMLDivElement>(null);
-  let {calendarProps, prevButtonProps, nextButtonProps, title} = useCalendar(
-    props,
-    state
-  );
+  let {calendarProps, prevButtonProps, nextButtonProps, title} = useCalendar(props, state);
 
   return (
     <div {...calendarProps} ref={ref} className="inline-block text-gray-800">

@@ -32,39 +32,31 @@ export function CalendarCell({state, date}: any) {
   // the last day of each week, and the end date of the selection.
   let {locale} = useLocale();
   let dayOfWeek = getDayOfWeek(date, locale);
-  let isRoundedLeft =
-    isSelected && (isSelectionStart || dayOfWeek === 0 || date.day === 1);
+  let isRoundedLeft = isSelected && (isSelectionStart || dayOfWeek === 0 || date.day === 1);
   let isRoundedRight =
     isSelected &&
-    (isSelectionEnd ||
-      dayOfWeek === 6 ||
-      date.day === date.calendar.getDaysInMonth(date));
+    (isSelectionEnd || dayOfWeek === 6 || date.day === date.calendar.getDaysInMonth(date));
 
   let {focusProps, isFocusVisible} = useFocusRing();
 
   return (
-    <td
-      {...cellProps}
-      className={`py-0.5 relative ${isFocusVisible ? 'z-10' : 'z-0'}`}
-    >
+    <td {...cellProps} className={`py-0.5 relative ${isFocusVisible ? 'z-10' : 'z-0'}`}>
       <div
         {...mergeProps(buttonProps, focusProps)}
         ref={ref}
         hidden={isOutsideVisibleRange}
-        className={`w-10 h-10 outline-none group ${
-          isRoundedLeft ? 'rounded-l-full' : ''
-        } ${isRoundedRight ? 'rounded-r-full' : ''} ${
-          isSelected ? (isInvalid ? 'bg-red-300' : 'bg-violet-300') : ''
-        } ${isDisabled ? 'disabled' : ''}`}
+        className={`w-10 h-10 outline-none group ${isRoundedLeft ? 'rounded-l-full' : ''} ${
+          isRoundedRight ? 'rounded-r-full' : ''
+        } ${isSelected ? (isInvalid ? 'bg-red-300' : 'bg-violet-300') : ''} ${
+          isDisabled ? 'disabled' : ''
+        }`}
       >
         <div
           className={`w-full h-full rounded-full flex items-center justify-center ${
             isDisabled && !isInvalid ? 'text-gray-400' : ''
           } ${
             // Focus ring, visible while the cell has keyboard focus.
-            isFocusVisible
-              ? 'ring-2 group-focus:z-2 ring-violet-600 ring-offset-2'
-              : ''
+            isFocusVisible ? 'ring-2 group-focus:z-2 ring-violet-600 ring-offset-2' : ''
           } ${
             // Darker selection background for the start and end.
             isSelectionStart || isSelectionEnd

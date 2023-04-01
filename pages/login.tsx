@@ -18,16 +18,9 @@ export default function Login() {
     <div className="flex flex-col justify-center min-h-screen py-12 bg-gray-100 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="relative w-auto h-12 mx-auto">
-          <Image
-            alt="Platforms Starter Kit"
-            layout="fill"
-            objectFit="contain"
-            src="/xpe.svg"
-          />
+          <Image alt="Platforms Starter Kit" layout="fill" objectFit="contain" src="/xpe.svg" />
         </div>
-        <h2 className="mt-6 text-3xl font-extrabold text-center text-gray-900">
-          Login
-        </h2>
+        <h2 className="mt-6 text-3xl font-extrabold text-center text-gray-900">Login</h2>
       </div>
 
       <div className="w-11/12 mx-auto mt-8 sm:w-full sm:max-w-md">

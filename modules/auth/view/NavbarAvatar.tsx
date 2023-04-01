@@ -32,9 +32,7 @@ export default function NavbarAvatar() {
               ) : (
                 <div className="avatar placeholder">
                   <div className="w-12 rounded-full bg-neutral-focus text-neutral-content">
-                    <p className="text-2xl">
-                      {session?.user?.username?.substring(0, 3) ?? ''}
-                    </p>
+                    <p className="text-2xl">{session?.user?.username?.substring(0, 3) ?? ''}</p>
                   </div>
                 </div>
               )}
@@ -45,6 +43,11 @@ export default function NavbarAvatar() {
           tabIndex={0}
           className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
         >
+          <li>
+            <Link className="justify-between" href="/meus-textos">
+              Meus textos
+            </Link>
+          </li>
           <li>
             <Link className="justify-between" href="/minha-conta">
               Minha conta

@@ -10,7 +10,8 @@
     "build": "next build",
     "start": "next start",
     "tsc": "tsc",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pret": "prettier --ignore-path .gitignore --write \"**/*.+(ts|tsx|json|css|scss|md)\""
   },
   "dependencies": {
     "@heroicons/react": "^2.0.10",

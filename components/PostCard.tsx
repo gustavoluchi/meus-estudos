@@ -30,9 +30,7 @@ const PostCard = ({title, coverImage, date, excerpt, author, slug}: Props) => {
               <DateFormatter dateString={date} />
             </p>
             <div className="justify-end pt-4 card-actions">
-              {author?.name && (
-                <Avatar name={author?.name} picture={author?.image} />
-              )}
+              {author?.name && <Avatar name={author?.name} picture={author?.image} />}
             </div>
           </div>
         </div>

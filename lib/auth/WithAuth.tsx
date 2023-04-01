@@ -3,10 +3,7 @@ import {signIn, useSession} from 'next-auth/react';
 import router from 'next/router';
 import {FC, ReactElement, useEffect} from 'react';
 
-export const WithAuth: FC<{children: ReactElement; options: any}> = ({
-  children,
-  options
-}) => {
+export const WithAuth: FC<{children: ReactElement; options: any}> = ({children, options}) => {
   const {data: session, status} = useSession();
   const isUser = !!session?.user;
   useEffect(() => {

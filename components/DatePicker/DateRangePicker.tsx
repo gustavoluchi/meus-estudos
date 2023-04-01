@@ -1,7 +1,4 @@
-import {
-  CalendarDaysIcon,
-  ExclamationCircleIcon
-} from '@heroicons/react/24/outline';
+import {CalendarDaysIcon, ExclamationCircleIcon} from '@heroicons/react/24/outline';
 import {useDateRangePicker} from '@react-aria/datepicker';
 import {useDateRangePickerState} from '@react-stately/datepicker';
 import {useRef} from 'react';
@@ -66,11 +63,7 @@ export function DateRangePicker(props: any) {
         </FieldButton>
       </div>
       {state.isOpen && (
-        <Popover
-          {...dialogProps}
-          isOpen={state.isOpen}
-          onClose={() => state.setOpen(false)}
-        >
+        <Popover {...dialogProps} isOpen={state.isOpen} onClose={() => state.setOpen(false)}>
           <RangeCalendar {...calendarProps} />
         </Popover>
       )}

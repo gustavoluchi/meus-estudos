@@ -26,6 +26,7 @@ model Post {
   userId        String?
 
   @@unique([id, siteId])
+  @@index([userId])
 }
 
 model Account {

@@ -12,9 +12,7 @@ export type Session = DefaultSession & {
   user?: SessionUser;
 };
 
-export async function getSession(
-  options: GetSessionParams
-): Promise<Session | null> {
+export async function getSession(options: GetSessionParams): Promise<Session | null> {
   const session = await getNextSession(options);
 
   // that these are equal are ensured in `[...nextauth]`'s callback

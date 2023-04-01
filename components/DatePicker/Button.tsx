@@ -13,9 +13,7 @@ export function CalendarButton(props: any) {
       ref={ref}
       className={`p-2 rounded-full ${props.isDisabled ? 'text-gray-400' : ''} ${
         !props.isDisabled ? 'hover:bg-violet-100 active:bg-violet-200' : ''
-      } outline-none ${
-        isFocusVisible ? 'ring-2 ring-offset-2 ring-purple-600' : ''
-      }`}
+      } outline-none ${isFocusVisible ? 'ring-2 ring-offset-2 ring-purple-600' : ''}`}
     >
       {props.children}
     </button>

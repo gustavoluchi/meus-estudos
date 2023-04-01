@@ -6,5 +6,6 @@ module.exports = {
   arrowParens: 'avoid',
   quoteProps: 'consistent',
   bracketSpacing: false,
-  proseWrap: 'always'
+  proseWrap: 'always',
+  printWidth: 100
 };
