@@ -1,10 +1,10 @@
 import NavBar from '@/components/NavBar';
 import {ReactElement} from 'react';
+import PostList from '../components/PostList';
 import Container from '../components/container';
 import Layout from '../components/layout';
-import PostList from '../components/PostList';
 import {PostType} from '../interfaces/post';
-import {getPostSlugs} from '../lib/api';
+import {getPosts} from '../lib/api';
 import {NextPageWithLayout} from './_app';
 
 type Props = {
@@ -33,7 +33,7 @@ Index.getLayout = function getLayout(page: ReactElement) {
 };
 
 export const getStaticProps = async () => {
-  const allPosts = await getPostSlugs(); //TODO: quando houver paginação, utilizar getManyPosts
+  const allPosts = await getPosts(); //TODO: quando houver paginação, utilizar getManyPosts
   return {
     props: {
       allPosts: allPosts.map(post => ({

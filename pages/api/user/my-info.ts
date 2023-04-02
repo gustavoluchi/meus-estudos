@@ -4,7 +4,7 @@ import type {NextApiRequest, NextApiResponse} from 'next';
 import invariant from 'tiny-invariant';
 
 export default async function handle(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'GET') {
+  if (req.method !== 'GET' && req.method !== 'PUT') {
     return res.status(405).json({
       error: new Error(`The HTTP ${req.method} method is not supported at this route.`)
     });

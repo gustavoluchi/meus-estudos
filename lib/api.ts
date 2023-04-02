@@ -2,7 +2,7 @@ import {prisma} from '@/shared/infra/prisma';
 
 function selectHelper(fields: string[] = []) {
   let select: any = undefined;
-  if (fields.length > 0) {
+  if (fields?.length > 0) {
     select = {};
     fields.forEach(field => (select[field] = true));
   }
@@ -31,10 +31,11 @@ export async function getMyPosts(howMany: number = 4) {
   });
 }
 
-export function getPostSlugs() {
+export function getPosts() {
   // const select = selectHelper(fields);
   return prisma.post.findMany({
     orderBy: {updatedAt: 'desc'},
+    where: {published: true},
     include: {User: true}
   });
 }

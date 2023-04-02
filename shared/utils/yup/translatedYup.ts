@@ -24,8 +24,10 @@ export const mixed = {
 };
 
 export const string = {
-  length: ({length}: any) =>
-    `O campo deve ter exatamente ${length} ${length === 1 ? 'caractere' : 'caracteres'}.`,
+  length: (props: any) =>
+    `O campo deve ter exatamente ${props?.length} ${
+      props?.length === 1 ? 'caractere' : 'caracteres'
+    }.`,
   min: ({min}: any) =>
     `O campo deve ter pelo menos ${min} ${min === 1 ? 'caractere' : 'caracteres'}.`,
   max: ({max}: any) =>

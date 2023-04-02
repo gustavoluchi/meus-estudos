@@ -11,15 +11,15 @@ type Props = {
   excerpt: string;
   author?: UserType;
   slug: string;
+  editing?: boolean;
+  pid?: string;
 };
 
-const PostCard = ({title, coverImage, date, excerpt, author, slug}: Props) => {
+const PostCard = ({title, coverImage, date, excerpt, author, slug, editing, pid}: Props) => {
+  const link = editing ? `/painel/textos/${pid}` : `/${author?.username ?? author?.gh_username}/posts/${slug}`;
+  const href = editing ? `/painel/textos/[pid]` : `/[User]/posts/[slug]`;
   return (
-    <Link
-      as={`/${author?.username ?? author?.gh_username}/posts/${slug}`}
-      href="/[User]/posts/[slug]"
-      aria-label={title}
-    >
+    <Link as={link} href={href} aria-label={title}>
       <div className="transition-shadow duration-200 shadow-lg cursor-pointer card w-96 bg-base-100 hover:shadow-2xl">
         {coverImage && <CoverImage title={title} src={coverImage} />}
         <div className="card-body">

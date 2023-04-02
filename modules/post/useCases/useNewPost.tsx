@@ -30,8 +30,7 @@ export default function useNewPost() {
     resolver: yupResolver(schema)
   });
   const handleSubmit = submit(async args => {
-    const service = postService();
-    const result = service.create(args);
+    const result = postService.create(args);
     const toastId = toast.loading('Salvando seu texto...');
     if ((await result).isRight()) {
       return toast.update(toastId, {

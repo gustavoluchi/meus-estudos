@@ -1,5 +1,6 @@
 import {requestBuilder} from '@/shared/infra/requestBuilder';
 import {Prisma} from '@prisma/client';
+import {PostType} from 'interfaces/post';
 
 const BASE_URL = '/api/user/';
 export const userService = {
@@ -12,7 +13,7 @@ export const userService = {
   },
   update: (data: Prisma.UserUncheckedUpdateInput) => {
     return requestBuilder({
-      url: `${BASE_URL}/my-info`,
+      url: `${BASE_URL}my-info`,
       method: 'PUT',
       data
     });
@@ -26,6 +27,12 @@ export const userService = {
   myInfo: () => {
     return requestBuilder({
       url: `${BASE_URL}my-info`,
+      method: 'GET'
+    });
+  },
+  myPosts: () => {
+    return requestBuilder<PostType[]>({
+      url: `${BASE_URL}my-posts`,
       method: 'GET'
     });
   }

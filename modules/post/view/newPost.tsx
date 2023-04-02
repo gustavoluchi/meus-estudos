@@ -14,10 +14,10 @@ const labels = {
 };
 const fieldNames = keyNameMirror(labels);
 
-function NewPost({props: {control, handleSubmit}}: any) {
+function NewPost({props: {control, handleSubmit}, editing}: any) {
   return (
     <div className="mb-4 prose max-w-none">
-      <h2>Novo texto</h2>
+      <h2>{editing ? 'Editar texto' : 'Novo texto'}</h2>
       <form noValidate onSubmit={handleSubmit} className="grid grid-cols-3">
         <InputRHF control={control} name={fieldNames.title} label={labels.title} required />
         <InputRHF control={control} name={fieldNames.subtitle} label={labels.subtitle} required />
@@ -39,11 +39,17 @@ function NewPost({props: {control, handleSubmit}}: any) {
           required
         />
         <div className="flex justify-between col-span-3 px-2 mt-4">
-          <p>
-            1. Por enquanto, só imagens do <a href="https://unsplash.com">unsplash.com</a> são
-            aceitas.
-          </p>
-          <p>* Novas postagens têm um atraso de 10 segundos para aparecerem na tela inicial.</p>
+          <div className="ml-2 not-prose">
+            <p>
+              <b>1.</b> Por enquanto, só imagens do <a href="https://unsplash.com">unsplash.com</a>{' '}
+              são aceitas.
+            </p>
+            <p>
+              <b>2.</b> Sintaxe markdown disponível.
+            </p>
+            <p>Novas postagens têm um atraso de 10 segundos para aparecerem na tela inicial.</p>
+          </div>
+
           <div className="flex items-center">
             <CheckboxRHF
               control={control}
@@ -56,7 +62,6 @@ function NewPost({props: {control, handleSubmit}}: any) {
             </button>
           </div>
         </div>
-        <p className="flex justify-between col-span-3 px-2 mt-4">2. Sintaxe markdown disponível.</p>
       </form>
     </div>
   );

@@ -9,7 +9,7 @@ import Layout from '../../../components/layout';
 import PostBody from '../../../components/post-body';
 import PostTitle from '../../../components/post-title';
 import type {PostType} from '../../../interfaces/post';
-import {getPostBySlug, getPostSlugs} from '../../../lib/api';
+import {getPostBySlug, getPosts} from '../../../lib/api';
 
 export default function Post({post}: {post: PostType}) {
   const router = useRouter();
@@ -91,7 +91,7 @@ export async function getStaticProps({params: {slug}}: Params) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getPostSlugs();
+  const posts = await getPosts();
   return {
     paths: posts.map(post => {
       return {
