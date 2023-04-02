@@ -24,7 +24,7 @@ export default async function handle(req: NextApiRequest, res: NextApiResponse) 
   if (req.method === HTTP_METHODS.PUT) {
     const {site, ...rest} = req.body;
     const result = await prisma.post.update({
-      data: {...rest, siteId: req.body.site.id},
+      data: {...rest, siteId: req.body.site?.id},
       where: {id}
     });
     return res.status(201).json(result);
