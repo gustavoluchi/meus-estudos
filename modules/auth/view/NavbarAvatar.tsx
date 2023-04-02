@@ -1,10 +1,11 @@
+import ActiveLink from '@/components/NavBar/NavLink';
 import {signOut, useSession} from 'next-auth/react';
-import Link from 'next/link';
+import {useRouter} from 'next/router';
 import GithubLoginButton from './GithubLoginButton';
 
 export default function NavbarAvatar() {
   const {data: session, status} = useSession();
-
+  const {pathname} = useRouter();
   if (status === 'unauthenticated') return <GithubLoginButton />;
 
   return (
@@ -43,15 +44,22 @@ export default function NavbarAvatar() {
           tabIndex={0}
           className="p-2 mt-3 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
         >
+          {pathname !== '/' && (
+            <li>
+              <ActiveLink className="justify-between" href="/painel/textos/novo">
+                Novo texto
+              </ActiveLink>
+            </li>
+          )}
           <li>
-            <Link className="justify-between" href="/meus-textos">
+            <ActiveLink className="justify-between" href="/meus-textos">
               Meus textos
-            </Link>
+            </ActiveLink>
           </li>
           <li>
-            <Link className="justify-between" href="/minha-conta">
+            <ActiveLink className="justify-between" href="/minha-conta">
               Minha conta
-            </Link>
+            </ActiveLink>
           </li>
           <li>
             <button type="button" onClick={() => signOut()}>

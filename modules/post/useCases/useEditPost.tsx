@@ -22,20 +22,13 @@ const schema = yup.object({
 export default function useEditPost(session: Session | null) {
   const router = useRouter();
   const {pid} = router.query;
-  // console.log(pid, typeof pid, session?.user.id);
-  // invariant(pid === session?.user.id, 'Você não pode editar este texto.');
-  // useQuery
   const {
-    data: post,
-    isLoading,
-    error
+    isLoading //TODO: show loading
   } = useQuery({
     queryKey: ['my-post', pid],
     queryFn: async ({signal}) => {
-      // invariant(typeof pid === 'string', 'Id do texto inválido.');
       const post = await postService.findById(pid as string, signal);
       if (post.isRight()) {
-        // const {email, name, image, phone, username}: any = userInfo.value.data;
         reset({
           title: post.value.data.title || undefined,
           subtitle: post.value.data.subtitle || undefined,
@@ -45,12 +38,12 @@ export default function useEditPost(session: Session | null) {
           published: post.value.data.published || undefined,
           site: post.value.data.siteId || undefined
         });
-        return post.value.data;
       }
       throw post.value;
     },
     refetchOnWindowFocus: false,
     enabled: typeof pid === 'string'
+    // onError: err => toast.error(msg.post.loadingError)
   });
 
   const {
@@ -91,5 +84,5 @@ export default function useEditPost(session: Session | null) {
       closeButton: null
     });
   });
-  return {control, handleSubmit};
+  return {control, handleSubmit, isLoading};
 }

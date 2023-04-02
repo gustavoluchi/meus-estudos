@@ -1,7 +1,8 @@
 export const msg = {
   post: {
     success: 'Post cadastrado com sucesso.',
-    error: 'Erro ao cadastrar post.'
+    error: 'Erro ao cadastrar post.',
+    loadingError: 'Erro ao carregar post.'
   }
 };
 
