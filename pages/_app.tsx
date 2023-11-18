@@ -1,3 +1,4 @@
+import {Analytics} from '@vercel/analytics/react';
 import type {NextPage} from 'next';
 import type {Session} from 'next-auth';
 import {SessionProvider} from 'next-auth/react';
@@ -25,25 +26,28 @@ export default function MyApp({Component, pageProps: {session, ...pageProps}}: A
   const queryClient = new QueryClient();
 
   return (
-    <I18nProvider locale="pt-BR">
-      <SSRProvider>
-        <QueryClientProvider client={queryClient}>
-          <OverlayContainer>
-            <SessionProvider session={session}>
-              {getLayout(<Component {...pageProps} />)}
-              <ToastContainer
-                closeButton
-                closeOnClick
-                hideProgressBar
-                pauseOnHover
-                newestOnTop
-                autoClose={5000}
-                position="bottom-right"
-              />
-            </SessionProvider>
-          </OverlayContainer>
-        </QueryClientProvider>
-      </SSRProvider>
-    </I18nProvider>
+    <>
+      <I18nProvider locale="pt-BR">
+        <SSRProvider>
+          <QueryClientProvider client={queryClient}>
+            <OverlayContainer>
+              <SessionProvider session={session}>
+                {getLayout(<Component {...pageProps} />)}
+                <ToastContainer
+                  closeButton
+                  closeOnClick
+                  hideProgressBar
+                  pauseOnHover
+                  newestOnTop
+                  autoClose={5000}
+                  position="bottom-right"
+                />
+              </SessionProvider>
+            </OverlayContainer>
+          </QueryClientProvider>
+        </SSRProvider>
+      </I18nProvider>
+      <Analytics />
+    </>
   );
 }
