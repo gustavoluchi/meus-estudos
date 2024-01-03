@@ -4,7 +4,7 @@ import type {Session} from 'next-auth';
 import {SessionProvider} from 'next-auth/react';
 import type {AppProps} from 'next/app';
 import {ReactElement, ReactNode} from 'react';
-import {I18nProvider, OverlayContainer, SSRProvider} from 'react-aria';
+import {I18nProvider, OverlayContainer} from 'react-aria';
 import {QueryClient, QueryClientProvider} from 'react-query';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -28,24 +28,22 @@ export default function MyApp({Component, pageProps: {session, ...pageProps}}: A
   return (
     <>
       <I18nProvider locale="pt-BR">
-        <SSRProvider>
-          <QueryClientProvider client={queryClient}>
-            <OverlayContainer>
-              <SessionProvider session={session}>
-                {getLayout(<Component {...pageProps} />)}
-                <ToastContainer
-                  closeButton
-                  closeOnClick
-                  hideProgressBar
-                  pauseOnHover
-                  newestOnTop
-                  autoClose={5000}
-                  position="bottom-right"
-                />
-              </SessionProvider>
-            </OverlayContainer>
-          </QueryClientProvider>
-        </SSRProvider>
+        <QueryClientProvider client={queryClient}>
+          <OverlayContainer>
+            <SessionProvider session={session}>
+              {getLayout(<Component {...pageProps} />)}
+              <ToastContainer
+                closeButton
+                closeOnClick
+                hideProgressBar
+                pauseOnHover
+                newestOnTop
+                autoClose={5000}
+                position="bottom-right"
+              />
+            </SessionProvider>
+          </OverlayContainer>
+        </QueryClientProvider>
       </I18nProvider>
       <Analytics />
     </>

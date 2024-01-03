@@ -1,11 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './components/**/*.tsx',
-    './pages/**/*.tsx',
-    './modules/**/*.tsx',
-    './shared/**/*.tsx'
-  ],
+  content: ['./components/**/*.tsx', './pages/**/*.tsx', './modules/**/*.tsx', './shared/**/*.tsx'],
   theme: {
     // extend: {
     //   colors: {
@@ -35,6 +30,42 @@ module.exports = {
     //     md: '0 8px 30px rgba(0, 0, 0, 0.12)'
     //   }
     // }
+  },
+  daisyui: {
+    themes: [
+      'light',
+      'dark',
+      'cupcake',
+      'bumblebee',
+      'emerald',
+      'corporate',
+      'synthwave',
+      'retro',
+      'cyberpunk',
+      'valentine',
+      'halloween',
+      'garden',
+      'forest',
+      'aqua',
+      'lofi',
+      'pastel',
+      'fantasy',
+      'wireframe',
+      'black',
+      'luxury',
+      'dracula',
+      'cmyk',
+      'autumn',
+      'business',
+      'acid',
+      'lemonade',
+      'night',
+      'coffee',
+      'winter',
+      'dim',
+      'nord',
+      'sunset'
+    ]
   },
   plugins: [require('@tailwindcss/typography'), require('daisyui')]
 };

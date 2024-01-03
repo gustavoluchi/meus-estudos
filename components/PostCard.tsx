@@ -16,7 +16,9 @@ type Props = {
 };
 
 const PostCard = ({title, coverImage, date, excerpt, author, slug, editing, pid}: Props) => {
-  const link = editing ? `/painel/textos/${pid}` : `/${author?.username ?? author?.gh_username}/posts/${slug}`;
+  const link = editing
+    ? `/painel/textos/${pid}`
+    : `/${author?.username ?? author?.gh_username}/posts/${slug}`;
   const href = editing ? `/painel/textos/[pid]` : `/[User]/posts/[slug]`;
   return (
     <Link as={link} href={href} aria-label={title}>

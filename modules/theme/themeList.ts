@@ -27,5 +27,8 @@ export const themeList = [
   'lemonade',
   'night',
   'coffee',
-  'winter'
+  'winter',
+  'dim',
+  'nord',
+  'sunset'
 ];
